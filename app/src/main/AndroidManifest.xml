@@ -10,22 +10,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DuBeard"
-        tools:targetApi="31">
+        android:theme="@style/Theme.DuBeardIFSC"
+        tools:targetApi="34">
         <activity
-            android:name=".TelaCliente"
+            android:name=".activity.Cadastro"
             android:exported="false" />
+
         <activity
-            android:name=".TelaFuncionario"
-            android:exported="false" />
-        <activity
-            android:name=".TelaPrincipal"
-            android:exported="false" />
-        <activity
-            android:name=".CadastroScreen"
-            android:exported="false" />
-        <activity
-            android:name=".LoginTela"
+            android:name=".activity.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.dubeard;
+package com.dubeard;
 
 import org.junit.Test;
 

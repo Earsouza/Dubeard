@@ -4,58 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/chumbo"
-    tools:context=".LoginTela">
+    tools:context=".activity.Login">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/barbearia_background"
         android:orientation="vertical"
         android:padding="16dp"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
-
 
         <ImageView
             android:id="@+id/barba"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:padding="20dp"
-            android:src="@drawable/barba" />
+            android:src="@drawable/icone" />
 
         <EditText
             android:id="@+id/editTextUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            android:textColorHint="@color/chumbo"
             android:hint="Usuário"
-            android:textColorHint="@color/cinza"
-            android:inputType="text" />
+            android:inputType="text"
+            android:padding="15dp"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/editTextSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:background="@color/white"
             android:hint="Senha"
-            android:textColorHint="@color/cinza"
-            android:inputType="textPassword" />
+            android:textColorHint="@color/chumbo"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/editTextLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/verde"
-            android:text="Entrar" />
+            android:text="Entrar"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            />
 
         <TextView
             android:id="@+id/editTextCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="16dp"
-            android:textColor="@color/cinza"
-            android:text="Ainda não possui uma conta" />
+            android:gravity="center"
+            android:onClick="cadastrar"
+            android:text="Ainda não possui uma conta"
+            android:textColor="@color/white"
+            android:textSize="17dp" />
 
     </LinearLayout>
 

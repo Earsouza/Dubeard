@@ -1,17 +1,16 @@
-package com.example.dubeard;
+package com.dubeard.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CadastroTela extends AppCompatActivity {
+import com.dubeard.R;
+
+public class Cadastro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cadastro_tela);
-
-        getSupportActionBar().hide();
-
+        setContentView(R.layout.activity_cadastro);
     }
 }

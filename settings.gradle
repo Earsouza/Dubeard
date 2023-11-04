@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DuBeard"
-include(":app")
+rootProject.name = "DuBeardIFSC"
+include ':app'
