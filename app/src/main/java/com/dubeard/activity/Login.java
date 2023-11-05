@@ -21,4 +21,10 @@ public class Login extends AppCompatActivity {
         Intent i = new Intent(this, Cadastro.class);
         startActivity(i);
     }
+
+    public void Login (View view){
+        Intent i = new Intent(this, PrincipalCliente.class);
+        startActivity(i);
+    }
+
 }
