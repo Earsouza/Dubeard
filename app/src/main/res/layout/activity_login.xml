@@ -23,49 +23,54 @@
             android:src="@drawable/icone" />
 
         <EditText
-            android:id="@+id/editTextUsuario"
+            android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@color/white"
-            android:textColorHint="@color/chumbo"
-            android:hint="Usuário"
+            android:hint="E-mail"
             android:inputType="text"
             android:padding="15dp"
+            android:textColorHint="@color/chumbo"
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/editTextSenha"
+            android:id="@+id/editSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@color/white"
             android:hint="Senha"
-            android:textColorHint="@color/chumbo"
             android:inputType="textPassword"
             android:padding="15dp"
+            android:textColorHint="@color/chumbo"
             android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/editTextLogin"
+        <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Entrar"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/botaoLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:backgroundTint="@color/black"
+            android:text="Entrar"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            />
+            android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/editTextCadastro"
+            android:id="@+id/cadastroAgora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:onClick="cadastrar"
-            android:text="Ainda não possui uma conta"
+            android:onClick="cadastrarButao"
+            android:text="Ainda não possuo cadastro"
             android:textColor="@color/white"
-            android:textSize="17dp" />
+            android:textSize="15dp" />
 
     </LinearLayout>
 

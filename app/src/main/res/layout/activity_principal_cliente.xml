@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cinza"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".activity.PrincipalCliente">
+
+    <TextView
+        android:id="@+id/infoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Serviços"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/btnCorteCabelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/black"
+        android:onClick="onButtonClick"
+        android:padding="30dp"
+        android:text="Corte de cabelo"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btnCorteBarba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:onClick="onButtonClick"
+        android:padding="30dp"
+        android:text="Corte de barba"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btnLavagemCabelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:onClick="onButtonClick"
+        android:padding="30dp"
+        android:text="Lavagem de cabelo"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btnTratamentoCabelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:onClick="onButtonClick"
+        android:padding="30dp"
+        android:text="Tratamento de cabelo"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:onClick="onButtonClick"
+        android:padding="30dp"
+        android:text="LOGOUT"
+        android:textSize="20dp" />
+
+</LinearLayout>
