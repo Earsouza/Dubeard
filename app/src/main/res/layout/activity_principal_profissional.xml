@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Agendamentos"
+        android:text="DuBeard"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -36,7 +36,7 @@
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Visualizar Ativos"
+        android:text="Visualizar Agendamentos"
         android:textSize="20dp" />
 
     <Button
@@ -46,7 +46,7 @@
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Cadastrar"
+        android:text="Cadastrar Profissional"
         android:textSize="20dp" />
 
     <Button
@@ -56,7 +56,7 @@
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Cancelar"
+        android:text="Cadastrar Serviços"
         android:textSize="20dp" />
 
 

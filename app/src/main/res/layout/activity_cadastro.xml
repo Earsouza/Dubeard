@@ -26,6 +26,30 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:hint="Nome"
+            android:inputType="textPersonName"
+            android:padding="15dp"
+            android:textColorHint="@color/chumbo"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/editCelular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:hint="Celular"
+            android:inputType="phone"
+            android:padding="15dp"
+            android:textColorHint="@color/chumbo"
+            android:textSize="20dp" />
+
+        <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

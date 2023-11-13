@@ -26,7 +26,7 @@ public class Cadastro extends AppCompatActivity {
 
     EditText editTextMail, editTextPassword;
 
-    //EditText editTextName;
+    EditText editTextName, editTextFone;
     Button buttonRegister;
 
     FirebaseAuth mAuth;
@@ -44,6 +44,7 @@ public class Cadastro extends AppCompatActivity {
             finish();
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +53,10 @@ public class Cadastro extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         editTextMail = findViewById(R.id.editEmail);
         editTextPassword = findViewById(R.id.editSenha);
-        //editTextName = findViewById(R.id.editNome);
+        editTextName = findViewById(R.id.editNome);
         buttonRegister = findViewById(R.id.botaoCadastrar);
         progressBar = findViewById(R.id.progressBar);
+        editTextFone = findViewById(R.id.editCelular);
         textView = findViewById(R.id.loginAgora);
 
         textView.setOnClickListener(new View.OnClickListener() {
@@ -74,12 +76,12 @@ public class Cadastro extends AppCompatActivity {
                 email = String.valueOf(editTextMail.getText());
                 password = String.valueOf(editTextPassword.getText());
 
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     Toast.makeText(Cadastro.this, "Informe o e-mail", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Cadastro.this, "Informe a senha", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -96,7 +98,7 @@ public class Cadastro extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 } else {
-                                  Toast.makeText(Cadastro.this, "Authentication failed.",
+                                    Toast.makeText(Cadastro.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
