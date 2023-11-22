@@ -65,7 +65,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password;
+                String email, password, adminSenha;
+                adminSenha = "admin@admin.com";
                 email = String.valueOf(editTextMail.getText());
                 password = String.valueOf(editTextPassword.getText());
 
@@ -85,9 +86,15 @@ public class Login extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), PrincipalCliente.class);
-                                    startActivity(intent);
-                                    finish();
+                                    if (email.equals(adminSenha)) {
+                                        Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Intent intent = new Intent(getApplicationContext(), PrincipalCliente.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
                                 } else {
                                     Toast.makeText(Login.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();

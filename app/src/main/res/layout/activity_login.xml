@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/barbearia_background"
+        android:background="@color/chumbo"
         android:orientation="vertical"
         android:padding="16dp"
         tools:layout_editor_absoluteX="0dp"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:padding="20dp"
-            android:src="@drawable/icone" />
+            android:src="@drawable/icone_principal" />
 
         <EditText
             android:id="@+id/editEmail"
@@ -31,7 +31,7 @@
             android:hint="E-mail"
             android:inputType="text"
             android:padding="15dp"
-            android:textColorHint="@color/chumbo"
+            android:textColorHint="@color/black"
             android:textSize="20dp" />
 
         <EditText
@@ -43,7 +43,7 @@
             android:hint="Senha"
             android:inputType="textPassword"
             android:padding="15dp"
-            android:textColorHint="@color/chumbo"
+            android:textColorHint="@color/black"
             android:textSize="20dp" />
 
         <ProgressBar

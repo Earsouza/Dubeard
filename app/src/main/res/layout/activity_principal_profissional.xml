@@ -30,34 +30,51 @@
         android:textStyle="bold" />
 
     <Button
+        android:id="@+id/cadastrarBarbeiro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Visualizar Agendamentos"
+        android:text="Cadastrar Barbeiro"
+        android:textColor="@color/white"
         android:textSize="20dp" />
 
     <Button
+        android:id="@+id/cadastrarServico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Cadastrar Profissional"
+        android:text="Cadastrar Serviço"
+        android:textColor="@color/white"
         android:textSize="20dp" />
 
     <Button
+        android:id="@+id/cadastrarCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Cadastrar Serviços"
+        android:text="Cadastrar Cliente"
+        android:textColor="@color/white"
         android:textSize="20dp" />
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:backgroundTint="@color/black"
+        android:onClick="onButtonClick"
+        android:padding="30dp"
+        android:text="Sair"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
 </LinearLayout>

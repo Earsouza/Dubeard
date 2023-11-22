@@ -2,32 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.CadastraServico"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinza"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".activity.PrincipalCliente">
-
-    <TextView
-        android:id="@+id/infoUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="Serviços"
+        android:text="Cadastra Serviço"
+        android:layout_marginTop="50dp"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/servico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/white"
+        android:hint="Serviço"
+        android:padding="15dp"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/valor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+
+        android:background="@color/white"
+        android:hint="Valor"
+        android:padding="15dp"
+        android:textColorHint="@color/black"
+        android:textSize="20dp" />
 
 
     <Button
@@ -38,18 +52,7 @@
         android:backgroundTint="@color/verde"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Reservar"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/deslogar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:backgroundTint="@color/black"
-        android:onClick="onButtonClick"
-        android:padding="30dp"
-        android:text="Sair"
+        android:text="Cadastrar"
         android:textSize="20dp" />
 
 </LinearLayout>
