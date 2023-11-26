@@ -15,6 +15,12 @@
         android:theme="@style/Theme.DuBeardIFSC"
         tools:targetApi="34">
         <activity
+            android:name=".activity.Reservar"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ListaBarbeiro"
+            android:exported="false" />
+        <activity
             android:name=".activity.CadastraBarbeiro"
             android:exported="false" />
         <activity
@@ -41,6 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

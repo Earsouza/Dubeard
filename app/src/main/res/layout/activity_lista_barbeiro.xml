@@ -1,0 +1,20 @@
+<!-- activity_main.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btCadastrarBarbeiro"/>
+
+    <Button
+        android:id="@+id/btCadastrarBarbeiro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/verde"
+        android:onClick="onButtonClick"
+        android:text="Cadastrar Novo Barbeiro"/>
+</RelativeLayout>

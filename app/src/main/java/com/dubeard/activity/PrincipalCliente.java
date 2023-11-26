@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class PrincipalCliente extends AppCompatActivity {
 
     FirebaseAuth auth;
-    Button sair;
+    Button sair, btReservar;
     FirebaseUser user;
     TextView textView;
     @Override
@@ -24,6 +24,7 @@ public class PrincipalCliente extends AppCompatActivity {
         setContentView(R.layout.activity_principal_cliente);
 
         auth = FirebaseAuth.getInstance();
+        btReservar = findViewById(R.id.btReservar);
         sair = findViewById(R.id.deslogar);
         textView = findViewById(R.id.infoUsuario);
         user = auth.getCurrentUser();
@@ -36,6 +37,16 @@ public class PrincipalCliente extends AppCompatActivity {
         else{
             textView.setText(user.getEmail());
         }
+
+        btReservar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Reservar.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
