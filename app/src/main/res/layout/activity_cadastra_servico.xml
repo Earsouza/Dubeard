@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.CadastraServico"
+    tools:context=".activity.ListaServico"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinza"
@@ -20,11 +20,13 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/servico"
+        android:id="@+id/editDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/white"
         android:hint="Serviço"
         android:padding="15dp"
@@ -32,11 +34,12 @@
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/valor"
+        android:id="@+id/editValor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/white"
         android:hint="Valor"
         android:padding="15dp"
@@ -45,14 +48,27 @@
 
 
     <Button
-        android:id="@+id/btnLavagemCabelo"
+        android:id="@+id/btCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="@color/verde"
-        android:onClick="onButtonClick"
-        android:padding="30dp"
+        android:padding="15dp"
         android:text="Cadastrar"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btRemoverServico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/verde"
+        android:layout_marginBottom="24dp"
+        android:padding="15dp"
+        android:text="Remover"
         android:textSize="20dp" />
 
 </LinearLayout>

@@ -30,38 +30,38 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/cadastrarBarbeiro"
+        android:id="@+id/visualizarBarbeiro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Cadastrar Barbeiro"
+        android:text="Barbeiros"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/cadastrarServico"
+        android:id="@+id/visualizarServico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Cadastrar Serviço"
+        android:text="Serviços"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/cadastrarCliente"
+        android:id="@+id/visualizarCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
         android:padding="30dp"
-        android:text="Cadastrar Cliente"
+        android:text="Clientes"
         android:textColor="@color/white"
         android:textSize="20dp" />
 

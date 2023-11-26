@@ -13,14 +13,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dubeard.MainActivity;
 import com.dubeard.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.ktx.Firebase;
 
 public class Login extends AppCompatActivity {
     EditText editTextMail, editTextPassword;
@@ -28,7 +26,7 @@ public class Login extends AppCompatActivity {
     FirebaseAuth mAuth;
     ProgressBar progressBar;
 
-    TextView textView;
+    TextView cadastrarUsuario;
 
     @Override
     public void onStart() {
@@ -50,10 +48,10 @@ public class Login extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editSenha);
         botaoLogin = findViewById(R.id.botaoLogin);
         progressBar = findViewById(R.id.progressBar);
-        textView = findViewById(R.id.cadastroAgora);
+        cadastrarUsuario = findViewById(R.id.cadastroAgora);
 
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        cadastrarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Cadastro.class);
