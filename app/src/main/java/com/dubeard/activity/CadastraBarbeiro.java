@@ -18,39 +18,34 @@ public class CadastraBarbeiro extends AppCompatActivity {
     EditText nome, telefone, email;
     Button btcadastrar;
 
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastra_barbeiro);
+
+        iniciarComponente();
+        processar();
     }
 
-    public void processar(View view){
-
-
+    private void iniciarComponente(){
         nome = findViewById(R.id.editNome);
         telefone = findViewById(R.id.editTelefone);
         email = findViewById(R.id.editEmail);
         btcadastrar = findViewById(R.id.btCadastrarBarbeiro);
-
-        String name = nome.getText().toString().trim();
-        String fone = telefone.getText().toString().trim();
-        String mail = email.getText().toString().trim();
-
-        Barbeiro obj = new Barbeiro(name, fone, mail);
-
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        DatabaseReference node = db.getReference("barbeiro");
-
-        node.child(name).setValue(obj);
-
-        nome.setText("");
-        telefone.setText("");
-        email.setText("");
-        Toast.makeText(getApplicationContext(), "Inserido", Toast.LENGTH_LONG).show();
-
-
     }
 
+    public void processar(){
+        reference =  FirebaseDatabase.getInstance().getReference().child("barbeiro");
 
+        Toast.makeText(getApplicationContext(), "Inserido", Toast.LENGTH_LONG).show();
+
+        btcadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reference.push().setValue(new Barbeiro(telefone.getText().toString(),nome.getText().toString(), email.getText().toString()));
+            }
+        });
+    }
 }

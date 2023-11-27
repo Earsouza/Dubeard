@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "595517917071",
-    "project_id": "dubeard-6a2a9",
-    "storage_bucket": "dubeard-6a2a9.appspot.com"
+    "project_number": "21509473692",
+    "firebase_url": "https://dubeardifsc-default-rtdb.firebaseio.com",
+    "project_id": "dubeardifsc",
+    "storage_bucket": "dubeardifsc.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:595517917071:android:beae2e6b1acd331f532dfa",
+        "mobilesdk_app_id": "1:21509473692:android:2143627587bbdde79a3459",
         "android_client_info": {
           "package_name": "com.dubeard"
         }

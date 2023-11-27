@@ -12,8 +12,8 @@ public class Servico {
     public String getDescricao() {
         return descricao;
     }
-
     public double getValor() {
         return valor;
     }
+
 }

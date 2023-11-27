@@ -59,7 +59,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/verde"
-        android:onClick="onButtonClick"
         android:padding="30dp"
         android:text="Clientes"
         android:textColor="@color/white"

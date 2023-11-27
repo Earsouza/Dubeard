@@ -19,24 +19,23 @@ import java.util.List;
 public class ListaServico extends AppCompatActivity {
 
     Button btcadastrarServico;
+    ArrayList<Servico> listaServicos = new ArrayList<>();
+    ServicoAdapter adapter;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listagem_servicos_main);
-        btcadastrarServico = findViewById(R.id.cadastrarServico);
 
+        inicializandoComponente();
 
-        ListView listView = findViewById(R.id.listView);
+        setandoAdapter();
 
-        List<Servico> listaServicos = new ArrayList<>();
-        listaServicos.add(new Servico("Barba", 30.0));
-        listaServicos.add(new Servico("Cabelo Máquina", 30.0));
-        listaServicos.add(new Servico("Cabelo Tesoura", 50.0));
-        listaServicos.add(new Servico("Completo (Cabelo+Barba)", 65.0));
+        clicandoNovoCadastroServico();
+    }
 
-        ServicoAdapter adapter = new ServicoAdapter(this, listaServicos);
-        listView.setAdapter(adapter);
+    private void clicandoNovoCadastroServico() {
         btcadastrarServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,5 +44,19 @@ public class ListaServico extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void inicializandoComponente() {
+        listView = findViewById(R.id.listView);
+        btcadastrarServico = findViewById(R.id.cadastrarServico);
+    }
+
+    public void setandoDadoFirebase() {
+        
+    }
+
+    public void setandoAdapter() {
+        adapter = new ServicoAdapter(this, listaServicos);
+        listView.setAdapter(adapter);
     }
 }
