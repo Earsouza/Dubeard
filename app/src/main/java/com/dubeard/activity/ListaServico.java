@@ -11,15 +11,13 @@ import android.widget.ListView;
 import com.dubeard.R;
 import com.dubeard.activity.model.Servico;
 import com.dubeard.adapter.ServicoAdapter;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListaServico extends AppCompatActivity {
 
     Button btcadastrarServico;
-    ArrayList<Servico> listaServicos = new ArrayList<>();
+    ArrayList<Servico> listaServico = new ArrayList<>();
     ServicoAdapter adapter;
     ListView listView;
 
@@ -52,7 +50,7 @@ public class ListaServico extends AppCompatActivity {
     }
 
     public void setandoAdapter() {
-        adapter = new ServicoAdapter(this, listaServicos);
+        adapter = new ServicoAdapter(this, listaServico);
         listView.setAdapter(adapter);
     }
 }
