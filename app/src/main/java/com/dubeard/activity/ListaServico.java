@@ -51,10 +51,6 @@ public class ListaServico extends AppCompatActivity {
         btcadastrarServico = findViewById(R.id.cadastrarServico);
     }
 
-    public void setandoDadoFirebase() {
-        
-    }
-
     public void setandoAdapter() {
         adapter = new ServicoAdapter(this, listaServicos);
         listView.setAdapter(adapter);
