@@ -13,13 +13,13 @@ import android.widget.ListView;
 
 import com.dubeard.R;
 import com.dubeard.activity.model.Barbeiro;
-import com.dubeard.activity.model.Servico;
 import com.dubeard.adapter.ServicoAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -27,11 +27,13 @@ public class ListaBarbeiro extends AppCompatActivity {
 
     Button btCadastrarBarbeiro;
 
-    ListView listViewBarbeiros;
+    ListView listView;
 
     ServicoAdapter adapter;
 
-    DatabaseReference reference;
+    DatabaseReference databaseReference;
+
+    ArrayAdapter<String> arrayAdapterBarbeiros;
 
     ArrayList<String>  arrayListBarbeiros = new ArrayList<>();
 
@@ -42,6 +44,41 @@ public class ListaBarbeiro extends AppCompatActivity {
 
         inicializandoComponente();
         clicandoNovoCadastroServico();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("barbeiro");
+
+        arrayAdapterBarbeiros = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayListBarbeiros);
+        listView = (ListView) findViewById(R.id.listViewBarbeiros);
+        listView.setAdapter(arrayAdapterBarbeiros);
+
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Barbeiro barbeiro = snapshot.getValue(Barbeiro.class);
+                arrayListBarbeiros.add(new Barbeiro(barbeiro.name,barbeiro.fone,barbeiro.mail).toString());
+                arrayAdapterBarbeiros.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void clicandoNovoCadastroServico() {
@@ -58,50 +95,6 @@ public class ListaBarbeiro extends AppCompatActivity {
     public void inicializandoComponente() {
         btCadastrarBarbeiro = findViewById(R.id.btCadastrarBarbeiro);
 
-        ArrayAdapter<String> arrayAdapterBarbeiros = new ArrayAdapter<String>(ListaBarbeiro.this, android.R.layout.simple_list_item_1, arrayListBarbeiros);
-
-        listViewBarbeiros = (ListView) findViewById(R.id.listViewBarbeiros);
-        listViewBarbeiros.setAdapter(arrayAdapterBarbeiros);
-
-        reference = FirebaseDatabase.getInstance().getReference();
-
-        reference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                for (DataSnapshot ds: snapshot.getChildren()){
-                    String nome = snapshot.child("name").getValue(String.class);
-                    String telefone = snapshot.child("fone").getValue(String.class);
-                    String email = snapshot.child("mail").getValue(String.class);
-                    arrayListBarbeiros.add(String.valueOf(new Barbeiro(nome, telefone, email)));
-                    adapter.notifyDataSetChanged();
-
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                arrayAdapterBarbeiros.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                arrayAdapterBarbeiros.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                arrayAdapterBarbeiros.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                arrayAdapterBarbeiros.notifyDataSetChanged();
-
-            }
-        });
 
     }
 }

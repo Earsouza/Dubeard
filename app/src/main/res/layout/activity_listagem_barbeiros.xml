@@ -15,6 +15,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/black"
-        android:onClick="onButtonClick"
         android:text="Cadastrar Novo Barbeiro"/>
 </RelativeLayout>

@@ -8,7 +8,12 @@ public class Barbeiro {
 
     public Barbeiro(){}
 
-    public Barbeiro(String name, String fone,  String mail) {
+    @Override
+    public String toString() {
+        return  "Nome:" + name + "\n" + "Telefone:" + fone + "\n"+ "Email:" + mail;
+    }
+
+    public Barbeiro(String name, String fone, String mail) {
         this.fone = fone;
         this.name = name;
         this.mail = mail;
