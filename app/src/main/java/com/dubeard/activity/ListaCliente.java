@@ -14,28 +14,30 @@ import com.dubeard.adapter.ServicoAdapter;
 
 import java.util.ArrayList;
 
-public class ListaServico extends AppCompatActivity {
+public class ListaCliente extends AppCompatActivity {
 
-    Button btcadastrarServico;
-    ArrayList<Servico> listaServico = new ArrayList<>();
+    Button btCadastrarCliente;
+    ArrayList<Servico> listaCliente = new ArrayList<>();
     ServicoAdapter adapter;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listagem_servicos);
+        setContentView(R.layout.activity_listagem_clientes);
 
         inicializandoComponente();
+
         setandoAdapter();
+
         clicandoNovoCadastroServico();
     }
 
     private void clicandoNovoCadastroServico() {
-        btcadastrarServico.setOnClickListener(new View.OnClickListener() {
+        btCadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CadastraServico.class);
+                Intent intent = new Intent(getApplicationContext(), CadastraCliente.class);
                 startActivity(intent);
                 finish();
             }
@@ -44,11 +46,11 @@ public class ListaServico extends AppCompatActivity {
 
     public void inicializandoComponente() {
         listView = findViewById(R.id.listView);
-        btcadastrarServico = findViewById(R.id.cadastrarServico);
+        btCadastrarCliente = findViewById(R.id.btCadastrarCliente);
     }
 
     public void setandoAdapter() {
-        adapter = new ServicoAdapter(this, listaServico);
+        adapter = new ServicoAdapter(this, listaCliente);
         listView.setAdapter(adapter);
     }
 }

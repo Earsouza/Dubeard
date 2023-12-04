@@ -4,17 +4,17 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/listViewBarbeiros"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/cadastrarServico"/>
+        android:layout_above="@+id/btCadastrarBarbeiro"/>
 
     <Button
-        android:id="@+id/cadastrarServico"
+        android:id="@+id/btCadastrarBarbeiro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:backgroundTint="@color/verde"
+        android:backgroundTint="@color/black"
         android:onClick="onButtonClick"
-        android:text="Cadastrar Novo Serviço"/>
+        android:text="Cadastrar Novo Barbeiro"/>
 </RelativeLayout>

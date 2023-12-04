@@ -34,11 +34,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:backgroundTint="@color/verde"
+        android:backgroundTint="@color/creme"
         android:onClick="onButtonClick"
         android:padding="30dp"
         android:text="Barbeiros"
-        android:textColor="@color/white"
+        android:drawableLeft="@drawable/tesoura"
+        android:textColor="@color/black"
         android:textSize="20dp" />
 
     <Button
@@ -46,11 +47,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/verde"
+        android:backgroundTint="@color/creme"
         android:onClick="onButtonClick"
         android:padding="30dp"
         android:text="Serviços"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:drawableLeft="@drawable/servicos"
         android:textSize="20dp" />
 
     <Button
@@ -58,10 +60,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/verde"
+        android:backgroundTint="@color/creme"
+        android:drawableLeft="@drawable/cliente"
         android:padding="30dp"
+        android:onClick="onButtonClick"
         android:text="Clientes"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20dp" />
 
     <Button

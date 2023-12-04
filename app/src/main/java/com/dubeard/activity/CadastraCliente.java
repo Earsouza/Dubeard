@@ -11,20 +11,20 @@ import android.widget.Toast;
 
 import com.dubeard.R;
 import com.dubeard.activity.model.Barbeiro;
+import com.dubeard.activity.model.Cliente;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CadastraBarbeiro extends AppCompatActivity {
+public class CadastraCliente extends AppCompatActivity {
 
-    EditText nome, telefone, email;
-    Button btCadastrarBarbeiro, btVoltar;
-
+    EditText nome, celular, email;
+    Button btCadastrarCliente, btVoltar;
     DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastra_barbeiro);
+        setContentView(R.layout.activity_cadastra_cliente);
 
         iniciarComponente();
         processar();
@@ -36,23 +36,27 @@ public class CadastraBarbeiro extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void iniciarComponente(){
         nome = findViewById(R.id.editNome);
-        telefone = findViewById(R.id.editTelefone);
+        celular = findViewById(R.id.editCelular);
         email = findViewById(R.id.editEmail);
-        btCadastrarBarbeiro = findViewById(R.id.btCadastrarBarbeiro);
+        btCadastrarCliente = findViewById(R.id.btCadastrarCliente);
         btVoltar = findViewById(R.id.btvoltar);
 
     }
 
     public void processar(){
-        reference =  FirebaseDatabase.getInstance().getReference().child("barbeiro");
-        btCadastrarBarbeiro.setOnClickListener(new View.OnClickListener() {
+        reference =  FirebaseDatabase.getInstance().getReference().child("cliente");
+
+         btCadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reference.push().setValue(new Barbeiro(nome.getText().toString(), telefone.getText().toString(), email.getText().toString()));
+                reference.push().setValue(new Cliente(nome.getText().toString(),celular.getText().toString(), email.getText().toString()));
+                Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+                startActivity(intent);
             }
         });
     }

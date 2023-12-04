@@ -9,18 +9,14 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dubeard.R;
-import com.dubeard.activity.model.Barbeiro;
 import com.dubeard.activity.model.Servico;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class CadastroServico extends AppCompatActivity {
+public class CadastraServico extends AppCompatActivity {
 
     EditText editDescricao, editValor;
-    Button btCadastrar;
+    Button btCadastrarServico, btVoltar;
 
     DatabaseReference reference;
 
@@ -31,12 +27,21 @@ public class CadastroServico extends AppCompatActivity {
 
         inicializandoComponentes();
         cadastrarServico();
+
+        btVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void inicializandoComponentes() {
         editDescricao = findViewById(R.id.editDescricao);
         editValor = findViewById(R.id.editValor);
-        btCadastrar = findViewById(R.id.btCadastrar);
+        btCadastrarServico = findViewById(R.id.btCadastrar);
+        btVoltar = findViewById(R.id.btvoltar);
 
     }
 
@@ -44,7 +49,7 @@ public class CadastroServico extends AppCompatActivity {
 
         reference =  FirebaseDatabase.getInstance().getReference().child("servico");
 
-        btCadastrar.setOnClickListener(new View.OnClickListener() {
+        btCadastrarServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 reference.push().setValue(new Servico(editDescricao.getText().toString(), Double.parseDouble(editValor.getText().toString())));

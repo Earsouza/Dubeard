@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class PrincipalProfissional extends AppCompatActivity {
 
     FirebaseAuth auth;
-    Button sair, visualizarServico, visualizarBarbeiro;
+    Button sair, visualizarServico, visualizarBarbeiro, cadastrarCliente;
     FirebaseUser user;
 
     @Override
@@ -23,6 +23,7 @@ public class PrincipalProfissional extends AppCompatActivity {
         setContentView(R.layout.activity_principal_profissional);
         visualizarServico = findViewById(R.id.visualizarServico);
         visualizarBarbeiro = findViewById(R.id.visualizarBarbeiro);
+        cadastrarCliente = findViewById(R.id.visualizarCliente);
 
         sair = findViewById(R.id.logout);
         auth = FirebaseAuth.getInstance();
@@ -44,6 +45,16 @@ public class PrincipalProfissional extends AppCompatActivity {
             }
         });
 
+        visualizarBarbeiro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), ListaBarbeiro.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         visualizarServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,11 +65,11 @@ public class PrincipalProfissional extends AppCompatActivity {
             }
         });
 
-        visualizarBarbeiro.setOnClickListener(new View.OnClickListener() {
+        cadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), CadastraBarbeiro.class);
+                Intent intent = new Intent(getApplicationContext(), ListaCliente.class);
                 startActivity(intent);
                 finish();
             }

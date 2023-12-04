@@ -9,6 +9,8 @@ public class Servico {
         this.valor = valor;
     }
 
+    public Servico() {
+    }
     public String getDescricao() {
         return descricao;
     }
