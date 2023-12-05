@@ -58,4 +58,21 @@ public class CadastraServico extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        // Defina a tela de destino que você deseja abrir ao pressionar o botão de voltar
+        Intent intent = new Intent(this, PrincipalProfissional.class);
+
+        // Adicione flags para limpar a pilha de atividades, se desejar
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        // Inicie a nova atividade
+        startActivity(intent);
+
+        // Finalize a atividade atual, se desejar
+        finish();
+    }
 }

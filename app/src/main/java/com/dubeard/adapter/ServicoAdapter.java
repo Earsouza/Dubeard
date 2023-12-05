@@ -17,7 +17,7 @@ public class ServicoAdapter extends ArrayAdapter<Servico> {
     public ServicoAdapter(Context context, List<Servico> servicos) {
         super(context, 0, servicos);
     }
-
+/*
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -33,5 +33,5 @@ public class ServicoAdapter extends ArrayAdapter<Servico> {
         textValor.setText(String.format("R$ %.2f", servico.getValor()));
 
         return convertView;
-    }
+    }*/
 }

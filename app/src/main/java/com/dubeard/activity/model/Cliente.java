@@ -1,39 +1,21 @@
 package com.dubeard.activity.model;
 
 public class Cliente {
-    private String nome;
-    private String celular;
-    private String email;
+    public String name = "";
+    public String fone = "";
+    public String mail = "";
 
-    // Construtor
-    public Cliente(String nome, String celular, String email) {
-        this.nome = nome;
-        this.celular = celular;
-        this.email = email;
+    public Cliente(){}
+
+    @Override
+    public String toString() {
+        return  "Nome:" + name + "\n" + "Telefone:" + fone + "\n"+ "Email:" + mail;
     }
 
-    // Getters e Setters
-    public String getNome() {
-        return nome;
+    public Cliente (String name, String fone, String mail) {
+        this.fone = fone;
+        this.name = name;
+        this.mail = mail;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

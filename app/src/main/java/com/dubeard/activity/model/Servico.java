@@ -1,21 +1,21 @@
 package com.dubeard.activity.model;
 
 public class Servico {
-    private String descricao;
-    private double valor;
+    public String descricao;
+    public double valor;
 
+    public Servico(){
+
+    }
     public Servico(String descricao, double valor) {
         this.descricao = descricao;
         this.valor = valor;
     }
 
-    public Servico() {
+    @Override
+    public String toString() {
+        return  "Descricao:" + descricao + "\n" + "Valor:" + valor + "\n";
     }
-    public String getDescricao() {
-        return descricao;
-    }
-    public double getValor() {
-        return valor;
-    }
+
 
 }

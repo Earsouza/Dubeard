@@ -48,17 +48,17 @@ public class PrincipalProfissional extends AppCompatActivity {
         visualizarBarbeiro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
+                //FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), ListaBarbeiro.class);
                 startActivity(intent);
                 finish();
             }
         });
 
+
         visualizarServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), ListaServico.class);
                 startActivity(intent);
                 finish();
@@ -68,11 +68,12 @@ public class PrincipalProfissional extends AppCompatActivity {
         cadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
+                //FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), ListaCliente.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
+
 }

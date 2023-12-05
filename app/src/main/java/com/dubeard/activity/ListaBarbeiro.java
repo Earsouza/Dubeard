@@ -29,8 +29,6 @@ public class ListaBarbeiro extends AppCompatActivity {
 
     ListView listView;
 
-    ServicoAdapter adapter;
-
     DatabaseReference databaseReference;
 
     ArrayAdapter<String> arrayAdapterBarbeiros;
@@ -43,7 +41,7 @@ public class ListaBarbeiro extends AppCompatActivity {
         setContentView(R.layout.activity_listagem_barbeiros);
 
         inicializandoComponente();
-        clicandoNovoCadastroServico();
+        clicandoNovoCadastroBarbeiro();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("barbeiro");
 
@@ -81,7 +79,7 @@ public class ListaBarbeiro extends AppCompatActivity {
         });
     }
 
-    private void clicandoNovoCadastroServico() {
+    private void clicandoNovoCadastroBarbeiro() {
         btCadastrarBarbeiro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

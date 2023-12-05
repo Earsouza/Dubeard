@@ -94,7 +94,7 @@ public class Login extends AppCompatActivity {
                                         finish();
                                     }
                                 } else {
-                                    Toast.makeText(Login.this, "Authentication failed.",
+                                    Toast.makeText(Login.this, "Usuário ou senha inválido",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
