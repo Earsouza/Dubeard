@@ -15,6 +15,15 @@
         android:theme="@style/Theme.DuBeardIFSC"
         tools:targetApi="34">
         <activity
+            android:name=".activity.EditarServico"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditarCliente"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditarBarbeiro"
+            android:exported="false" />
+        <activity
             android:name=".activity.ListaCliente"
             android:exported="false" />
         <activity
@@ -30,19 +39,7 @@
             android:name=".activity.CadastraBarbeiro"
             android:exported="false" />
         <activity
-            android:name=".activity.Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".activity.ListaServico"
-            android:exported="false" />
-        <activity
-            android:name=".activity.PrincipalCliente"
             android:exported="false" />
         <activity
             android:name=".activity.CadastraServico"
@@ -51,9 +48,17 @@
             android:name=".activity.Cadastro"
             android:exported="false" />
         <activity
-            android:name=".activity.PrincipalProfissional"
+            android:name=".activity.PrincipalCliente"
             android:exported="false" />
+        <activity
+            android:name=".activity.PrincipalProfissional"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

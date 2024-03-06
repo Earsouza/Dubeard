@@ -7,17 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.dubeard.R;
 import com.dubeard.activity.model.Barbeiro;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.UUID;
+
 public class CadastraBarbeiro extends AppCompatActivity {
 
     EditText nome, telefone, email;
-    Button btCadastrarBarbeiro, btVoltar;
+    Button btCadastrarBarbeiro, btVoltar, btCancelar;
 
     DatabaseReference reference;
 
@@ -27,7 +28,7 @@ public class CadastraBarbeiro extends AppCompatActivity {
         setContentView(R.layout.activity_cadastra_barbeiro);
 
         iniciarComponente();
-        processar();
+        createBarber();
 
         btVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,25 +37,44 @@ public class CadastraBarbeiro extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearInput();
+            }
+        });
     }
 
-    private void iniciarComponente(){
+    private void iniciarComponente() {
         nome = findViewById(R.id.editNome);
         telefone = findViewById(R.id.editTelefone);
         email = findViewById(R.id.editEmail);
-        btCadastrarBarbeiro = findViewById(R.id.btCadastrarBarbeiro);
+        btCadastrarBarbeiro = findViewById(R.id.btCadastraBarbeiro);
         btVoltar = findViewById(R.id.btvoltar);
-
+        btCancelar = findViewById(R.id.btCancelar);
     }
 
-    public void processar(){
+    public void createBarber() {
         reference =  FirebaseDatabase.getInstance().getReference().child("barbeiro");
+
         btCadastrarBarbeiro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reference.push().setValue(new Barbeiro(nome.getText().toString(), telefone.getText().toString(), email.getText().toString()));
+                reference.push().setValue(new Barbeiro(
+                        nome.getText().toString(),
+                        telefone.getText().toString(),
+                        email.getText().toString()));
+                Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+                startActivity(intent);
             }
         });
+    }
+
+    private void clearInput() {
+        nome.setText("");
+        email.setText("");
+        telefone.setText("");
     }
 
     @Override

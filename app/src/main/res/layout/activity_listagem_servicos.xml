@@ -16,6 +16,5 @@
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/black"
         android:textColor="@color/white"
-        android:onClick="onButtonClick"
         android:text="Cadastrar Novo Serviço"/>
 </RelativeLayout>
