@@ -50,7 +50,7 @@ public class ListaServico extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Servico servico = snapshot.getValue(Servico.class);
-                arrayListServicos.add(new Servico(servico.descricao, servico.valor).toString());
+                arrayListServicos.add(new Servico(servico.getDescricao(), servico.getValor()).toString());
                 arrayAdapterServicos.notifyDataSetChanged();
             }
 

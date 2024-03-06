@@ -15,6 +15,15 @@
         android:theme="@style/Theme.DuBeardIFSC"
         tools:targetApi="34">
         <activity
+            android:name=".activity.EditarServico"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditarCliente"
+            android:exported="false" />
+        <activity
+            android:name=".activity.EditarBarbeiro"
+            android:exported="false" />
+        <activity
             android:name=".activity.ListaCliente"
             android:exported="false" />
         <activity
@@ -30,7 +39,7 @@
             android:name=".activity.CadastraBarbeiro"
             android:exported="false" />
         <activity
-            android:name=".activity.Login"
+            android:name=".activity.PrincipalProfissional"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,7 +60,7 @@
             android:name=".activity.Cadastro"
             android:exported="false" />
         <activity
-            android:name=".activity.PrincipalProfissional"
+            android:name=".activity.Login"
             android:exported="false" />
 
         <meta-data

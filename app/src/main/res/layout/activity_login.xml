@@ -67,7 +67,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:onClick="cadastrarButao"
             android:text="Ainda não possuo cadastro"
             android:textColor="@color/white"
             android:textSize="15dp" />

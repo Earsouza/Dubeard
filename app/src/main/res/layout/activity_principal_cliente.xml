@@ -37,7 +37,6 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/creme"
         android:textColor="@color/black"
-        android:onClick="onButtonClick"
         android:padding="30dp"
         android:text="Reservar"
         android:textSize="20dp" />
@@ -48,7 +47,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
         android:backgroundTint="@color/black"
-        android:onClick="onButtonClick"
         android:padding="30dp"
         android:text="Sair"
         android:textSize="20dp" />

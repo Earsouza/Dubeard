@@ -51,7 +51,7 @@ public class ListaCliente extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Cliente cliente = snapshot.getValue(Cliente.class);
-                arrayListClientes.add(new Cliente(cliente.name, cliente.fone, cliente.mail).toString());
+                arrayListClientes.add(new Cliente(cliente.getName(), cliente.getFone(), cliente.getMail()).toString());
                 arrayAdapterClientes.notifyDataSetChanged();
             }
 

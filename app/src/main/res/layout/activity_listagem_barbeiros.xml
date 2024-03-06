@@ -7,10 +7,10 @@
         android:id="@+id/listViewBarbeiros"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btCadastrarBarbeiro"/>
+        android:layout_above="@+id/btOpenCadastraBarbeiro"/>
 
     <Button
-        android:id="@+id/btCadastrarBarbeiro"
+        android:id="@+id/btOpenCadastraBarbeiro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
