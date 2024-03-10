@@ -5,15 +5,23 @@ import com.google.firebase.database.*;
 
 public class FirebaseDataManager <T> extends AppCompatActivity {
 
+    private String entityName;
     private String nodeId;
     private Class<T> entity;
     private DatabaseReference nodeReference;
+    private DatabaseReference entityReference;
 
     private FirebaseDataManager() { }
 
-    public FirebaseDataManager(Class<T> entity, String nodeId) {
+    public FirebaseDataManager(Class<T> entity, String entityName, String nodeId) {
         this.entity = entity;
+        this.entityName = entityName;
         this.nodeId = nodeId;
+    }
+
+    public void init() {
+        entityReference = FirebaseDatabase.getInstance().getReference().child(entityName);
+        nodeReference = entityReference.child(nodeId);
     }
 
     public DatabaseReference getNodeReference() {
@@ -21,8 +29,6 @@ public class FirebaseDataManager <T> extends AppCompatActivity {
     }
 
     public void setCurrentData(DataLoadListener listener) {
-        nodeReference = FirebaseDatabase.getInstance().getReference().child("barbeiro").child(nodeId);
-
         if (nodeReference != null) {
             nodeReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override

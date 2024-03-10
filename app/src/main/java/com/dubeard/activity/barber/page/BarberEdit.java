@@ -43,7 +43,9 @@ public class BarberEdit extends AppCompatActivity implements DataLoadListener <B
     private void initComponents() {
         String nodeId = getIntent().getStringExtra("id");
 
-        firebaseDataManager = new FirebaseDataManager(Barber.class, nodeId);
+        firebaseDataManager = new FirebaseDataManager(Barber.class, "barbeiro", nodeId);
+        firebaseDataManager.init();
+
         intent = new Intent(getApplicationContext(), BarberList.class);
 
         editName = findViewById(R.id.editNameBarberEdit);
