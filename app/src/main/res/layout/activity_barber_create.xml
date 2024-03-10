@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/editButton"
+    tools:context=".activity.barber.page.BarberCreate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinza"
-    android:orientation="vertical"
-    tools:context=".activity.EditaBarbeiro">
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
         android:gravity="center"
-        android:text="Barbeiro"
+        android:text="Cadastra Barbeiro"
+        android:layout_marginTop="50dp"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -25,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
         android:background="@color/white"
         android:hint="Nome"
@@ -61,15 +59,15 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/editBarberButton"
+        android:id="@+id/btCadastraBarbeiro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/black"
-        android:padding="15dp"
-        android:text="Alterar"
         android:textColor="@color/white"
+        android:padding="15dp"
+        android:text="Cadastrar"
         android:textSize="20dp" />
 
     <Button
@@ -100,4 +98,3 @@
         android:textSize="20dp" />
 
 </LinearLayout>
-

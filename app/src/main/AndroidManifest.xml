@@ -21,7 +21,7 @@
             android:name=".activity.EditarCliente"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.page.Edit"
+            android:name=".activity.barber.page.BarberEdit"
             android:exported="false" />
         <activity
             android:name=".activity.ListaCliente"
@@ -33,10 +33,10 @@
             android:name=".activity.Reservar"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.page.ListaBarbeiro"
+            android:name=".activity.barber.page.BarberList"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.page.CadastraBarbeiro"
+            android:name=".activity.barber.page.BarberCreate"
             android:exported="false" />
         <activity
             android:name=".activity.ListaServico"

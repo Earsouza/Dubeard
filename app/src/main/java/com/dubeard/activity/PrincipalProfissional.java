@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dubeard.R;
-import com.dubeard.activity.barber.page.ListaBarbeiro;
+import com.dubeard.activity.barber.page.BarberList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -50,7 +50,7 @@ public class PrincipalProfissional extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), ListaBarbeiro.class);
+                Intent intent = new Intent(getApplicationContext(), BarberList.class);
                 startActivity(intent);
                 finish();
             }

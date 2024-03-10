@@ -10,11 +10,11 @@ import android.widget.EditText;
 
 import com.dubeard.R;
 import com.dubeard.activity.PrincipalProfissional;
-import com.dubeard.activity.barber.model.Barbeiro;
+import com.dubeard.activity.barber.model.Barber;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CadastraBarbeiro extends AppCompatActivity {
+public class BarberCreate extends AppCompatActivity {
 
     EditText nome, telefone, email;
     Button btCadastrarBarbeiro, btVoltar, btCancelar;
@@ -24,7 +24,7 @@ public class CadastraBarbeiro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastra_barbeiro);
+        setContentView(R.layout.activity_barber_create);
 
         iniciarComponente();
         createBarber();
@@ -60,7 +60,7 @@ public class CadastraBarbeiro extends AppCompatActivity {
         btCadastrarBarbeiro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reference.push().setValue(new Barbeiro(
+                reference.push().setValue(new Barber(
                         reference.getKey(),
                         nome.getText().toString(),
                         telefone.getText().toString(),
