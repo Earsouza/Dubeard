@@ -9,14 +9,16 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dubeard.R;
+import com.dubeard.activity.barber.model.Barber;
 import com.dubeard.activity.model.Cliente;
 import com.dubeard.activity.model.Reserva;
 import com.dubeard.activity.model.Servico;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,15 +89,46 @@ public class Reservar extends AppCompatActivity {
     }
 
     private void setupSpinnerServico() {
-        List<String> servicos = new ArrayList<>();
-        servicos.add("Corte de Cabelo");
-        servicos.add("Barba");
-        servicos.add("Penteado");
-        servicos.add("Hidratacao");
+        reference =  FirebaseDatabase.getInstance().getReference().child("reserva");
 
         ArrayAdapter<String> adapterServico = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, servicos);
         adapterServico.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerServico.setAdapter(adapterServico);
+
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Servico service = snapshot.getValue(Servico.class);
+                arrayListBarbers.add(
+                        new Servico(.getDescricao(),
+                                service.getValor())
+                );
+
+                arrayAdapterBarbers.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Barber barber = snapshot.getValue(Barber.class);
+                arrayListBarbers.remove(
+                        new Barber(snapshot.getKey(),
+                                barber.getName(),
+                                barber.getPhone(),
+                                barber.getEmail())
+                );
+
+                arrayAdapterBarbers.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
     }
 
     private void processar() {

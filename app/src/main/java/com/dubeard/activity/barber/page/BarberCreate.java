@@ -61,11 +61,10 @@ public class BarberCreate extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 reference.push().setValue(new Barber(
-                        reference.getKey(),
                         nome.getText().toString(),
                         telefone.getText().toString(),
                         email.getText().toString()));
-                Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+                Intent intent = new Intent(getApplicationContext(), BarberList.class);
                 startActivity(intent);
             }
         });

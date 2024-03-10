@@ -8,6 +8,13 @@ public class Barber {
 
     public Barber() { }
 
+    public Barber(String name, String phone, String email) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+    }
+
     public Barber(String id, String name, String phone, String email) {
         this.id = id;
         this.name = name;

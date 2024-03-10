@@ -11,7 +11,6 @@ import com.dubeard.R;
 import com.dubeard.firebase.DataLoadListener;
 import com.dubeard.firebase.FirebaseDataManager;
 import com.dubeard.activity.barber.model.Barber;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class BarberEdit extends AppCompatActivity implements DataLoadListener <Barber> {
 
@@ -44,8 +43,9 @@ public class BarberEdit extends AppCompatActivity implements DataLoadListener <B
     private void initComponents() {
         String nodeId = getIntent().getStringExtra("id");
 
-        firebaseDataManager = new FirebaseDataManager(Barber.class);
-        firebaseDataManager.setNodeReference(FirebaseDatabase.getInstance().getReference().child("barbeiro").child(nodeId));
+        firebaseDataManager = new FirebaseDataManager(Barber.class, "barbeiro", nodeId);
+        firebaseDataManager.init();
+
         intent = new Intent(getApplicationContext(), BarberList.class);
 
         editName = findViewById(R.id.editNameBarberEdit);
