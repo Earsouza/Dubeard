@@ -12,9 +12,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.dubeard.R;
-import com.dubeard.activity.model.Barbeiro;
 import com.dubeard.activity.model.Servico;
-import com.dubeard.adapter.ServicoAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

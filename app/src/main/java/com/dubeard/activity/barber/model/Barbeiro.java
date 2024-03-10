@@ -1,4 +1,4 @@
-package com.dubeard.activity.model;
+package com.dubeard.activity.barber.model;
 
 public class Barbeiro {
     private String id;
@@ -6,19 +6,13 @@ public class Barbeiro {
     private String fone;
     private String mail;
 
-    public Barbeiro(){}
+    public Barbeiro() { }
 
     public Barbeiro(String id, String name, String mail, String fone) {
         this.id = id;
         this.name = name;
         this.mail = mail;
         this.fone = fone;
-    }
-
-    public Barbeiro(String name, String fone, String mail) {
-        this.fone = fone;
-        this.name = name;
-        this.mail = mail;
     }
 
     public String getId() {

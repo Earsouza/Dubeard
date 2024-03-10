@@ -1,4 +1,4 @@
-package com.dubeard.activity;
+package com.dubeard.activity.barber.page;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.dubeard.R;
-import com.dubeard.activity.model.Barbeiro;
+import com.dubeard.activity.barber.model.Barbeiro;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,7 +54,7 @@ public class ListaBarbeiro extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Barbeiro barbeiro = snapshot.getValue(Barbeiro.class);
-                arrayListBarbeiros.add(new Barbeiro(barbeiro.getId(), barbeiro.getName(), barbeiro.getMail(), barbeiro.getFone()));
+                arrayListBarbeiros.add(new Barbeiro(snapshot.getKey(), barbeiro.getName(), barbeiro.getMail(), barbeiro.getFone()));
                 arrayAdapterBarbeiros.notifyDataSetChanged();
             }
 
@@ -66,7 +66,7 @@ public class ListaBarbeiro extends AppCompatActivity {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                 Barbeiro barbeiro = snapshot.getValue(Barbeiro.class);
-                arrayListBarbeiros.remove(new Barbeiro(barbeiro.getId(), barbeiro.getName(), barbeiro.getMail(), barbeiro.getFone()).toString());
+                arrayListBarbeiros.remove(new Barbeiro(snapshot.getKey(), barbeiro.getName(), barbeiro.getMail(), barbeiro.getFone()).toString());
                 arrayAdapterBarbeiros.notifyDataSetChanged();
             }
 
@@ -102,8 +102,8 @@ public class ListaBarbeiro extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Barbeiro selectedBarber = (Barbeiro) parent.getItemAtPosition(position);
-                Intent intent = new Intent(ListaBarbeiro.this, EditarBarbeiro.class);
-                intent.putExtra("id", selectedBarber.getName());
+                Intent intent = new Intent(ListaBarbeiro.this, Edit.class);
+                intent.putExtra("id", selectedBarber.getId());
                 startActivity(intent);
                 finish();
             }
