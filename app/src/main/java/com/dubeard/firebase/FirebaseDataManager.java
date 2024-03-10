@@ -1,4 +1,4 @@
-package com.dubeard.activity;
+package com.dubeard.firebase;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DataSnapshot;

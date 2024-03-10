@@ -1,4 +1,4 @@
-package com.dubeard.activity;
+package com.dubeard.firebase;
 
 public interface DataLoadListener <T> {
 
