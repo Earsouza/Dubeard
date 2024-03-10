@@ -1,30 +1,43 @@
 package com.dubeard.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.dubeard.activity.barber.model.Barbeiro;
-import com.google.firebase.database.*;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
-public class FirebaseDataManager extends AppCompatActivity {
+public class FirebaseDataManager <T> extends AppCompatActivity {
 
-    protected DatabaseReference itemReference;
-    protected DatabaseReference databaseReference;
+    private Class<T> clazz;
+    private DatabaseReference nodeReference;
+
+    public FirebaseDataManager(Class<T> clazz) {
+        this.clazz = clazz;
+    }
+
+    public DatabaseReference getNodeReference() {
+        return nodeReference;
+    }
+
+    public void setNodeReference(DatabaseReference nodeReference) {
+        this.nodeReference = nodeReference;
+    }
 
     public void setCurrentData(DataLoadListener listener) {
-        String itemId = getIntent().getStringExtra("id");
-        itemReference = databaseReference.child("barbeiro").child(itemId);
 
-        itemReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Barbeiro currentData = dataSnapshot.getValue(Barbeiro.class);
+        if (nodeReference != null) {
+            nodeReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    T currentData = dataSnapshot.getValue(clazz);
+                    listener.onDataLoaded(currentData);
+                }
 
-                listener.onDataLoaded(currentData);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                //Pending implementation
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    //Pending implementation
+                }
+            });
+        }
     }
 }

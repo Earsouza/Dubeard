@@ -6,22 +6,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
 import com.dubeard.R;
-import com.dubeard.activity.FirebaseDataManager;
 import com.dubeard.activity.DataLoadListener;
-import com.dubeard.activity.PrincipalProfissional;
+import com.dubeard.activity.FirebaseDataManager;
 import com.dubeard.activity.barber.model.Barbeiro;
-import com.google.firebase.database.*;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class Edit extends FirebaseDataManager implements DataLoadListener <Barbeiro> {
+public class Edit extends AppCompatActivity implements DataLoadListener <Barbeiro> {
 
     EditText name;
     EditText phone;
     EditText email;
-    Button editButton;
-    Button backButton;
-    Button cancelButton;
+    Button btSave;
+    Button btExclude;
+    Button btCancel;
     Barbeiro currentData;
+    Intent intent;
+    FirebaseDataManager<Barbeiro> firebaseDataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +31,8 @@ public class Edit extends FirebaseDataManager implements DataLoadListener <Barbe
         setContentView(R.layout.activity_editar_barbeiro);
 
         initComponents();
-        setCurrentData(this);
+        firebaseDataManager.setCurrentData(this);
         defineButtonsAction();
-    }
-
-    private void initComponents() {
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        name = findViewById(R.id.editNome);
-        phone = findViewById(R.id.editTelefone);
-        email = findViewById(R.id.editEmail);
-        editButton = findViewById(R.id.editBarberButton);
-        backButton = findViewById(R.id.btvoltar);
-        cancelButton = findViewById(R.id.btCancelar);
     }
 
     @Override
@@ -49,32 +41,45 @@ public class Edit extends FirebaseDataManager implements DataLoadListener <Barbe
         populateFields();
     }
 
+    private void initComponents() {
+        String itemId = getIntent().getStringExtra("id");
+
+        firebaseDataManager = new FirebaseDataManager(Barbeiro.class);
+        firebaseDataManager.setNodeReference(FirebaseDatabase.getInstance().getReference().child("barbeiro").child(itemId));
+        intent = new Intent(getApplicationContext(), ListaBarbeiro.class);
+
+        name = findViewById(R.id.editNome);
+        phone = findViewById(R.id.editTelefone);
+        email = findViewById(R.id.editEmail);
+        btSave = findViewById(R.id.btSave);
+        btExclude = findViewById(R.id.btExclude);
+        btCancel = findViewById(R.id.btCancel);
+    }
+
     private void defineButtonsAction() {
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
-                startActivity(intent);
-            }
-        });
-
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clearInput();
-            }
-        });
-
-        editButton.setOnClickListener(new View.OnClickListener() {
+        btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 currentData.setName(name.getText().toString());
                 currentData.setFone(phone.getText().toString());
                 currentData.setMail(email.getText().toString());
 
-                itemReference.setValue(currentData);
+                firebaseDataManager.getNodeReference().setValue(currentData);
+                startActivity(intent);
+            }
+        });
 
-                Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+        btExclude.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseDataManager.getNodeReference().removeValue();
+                startActivity(intent);
+            }
+        });
+
+        btCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 startActivity(intent);
             }
         });
@@ -84,12 +89,6 @@ public class Edit extends FirebaseDataManager implements DataLoadListener <Barbe
         name.setText(currentData.getName());
         email.setText(currentData.getMail());
         phone.setText(currentData.getFone());
-    }
-
-    private void clearInput() {
-        name.setText("");
-        email.setText("");
-        phone.setText("");
     }
 
 }
