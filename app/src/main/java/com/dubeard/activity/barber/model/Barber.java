@@ -15,6 +15,10 @@ public class Barber {
         this.email = email;
     }
 
+    public String getEntityName() {
+        return "barbeiro";
+    }
+
     public String getId() {
         return id;
     }
