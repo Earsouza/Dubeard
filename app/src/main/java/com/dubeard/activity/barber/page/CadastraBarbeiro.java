@@ -1,4 +1,4 @@
-package com.dubeard.activity;
+package com.dubeard.activity.barber.page;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,11 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.dubeard.R;
-import com.dubeard.activity.model.Barbeiro;
+import com.dubeard.activity.PrincipalProfissional;
+import com.dubeard.activity.barber.model.Barbeiro;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.UUID;
 
 public class CadastraBarbeiro extends AppCompatActivity {
 
@@ -62,6 +61,7 @@ public class CadastraBarbeiro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 reference.push().setValue(new Barbeiro(
+                        reference.getKey(),
                         nome.getText().toString(),
                         telefone.getText().toString(),
                         email.getText().toString()));
