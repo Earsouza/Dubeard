@@ -1,4 +1,6 @@
-package com.dubeard.activity.barber.page;
+package com.dubeard.activity.barber.Control;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,13 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
 import com.dubeard.R;
+import com.dubeard.activity.barber.model.Client;
 import com.dubeard.firebase.DataLoadListener;
 import com.dubeard.firebase.FirebaseDataManager;
-import com.dubeard.activity.barber.model.Barber;
 
-public class BarberEdit extends AppCompatActivity implements DataLoadListener <Barber> {
+public class ClientEdit extends AppCompatActivity implements DataLoadListener<Client> {
 
     EditText editName;
     EditText editPhone;
@@ -20,51 +21,50 @@ public class BarberEdit extends AppCompatActivity implements DataLoadListener <B
     Button btSave;
     Button btExclude;
     Button btCancel;
-    Barber barber;
+    Client client;
     Intent intent;
-    FirebaseDataManager<Barber> firebaseDataManager;
+    FirebaseDataManager<Client> firebaseDataManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_barber_edit);
+        setContentView(R.layout.activity_client_edit);
 
         initComponents();
         firebaseDataManager.setCurrentData(this);
         defineButtonsAction();
     }
-
-    @Override
-    public void onDataLoaded(Barber data) {
-        barber = data;
+    public void onDataLoaded(Client data) {
+        client = data;
         populateFields();
     }
+
 
     private void initComponents() {
         String nodeId = getIntent().getStringExtra("id");
 
-        firebaseDataManager = new FirebaseDataManager(Barber.class, "barbeiro", nodeId);
+        firebaseDataManager = new FirebaseDataManager(Client.class, "cliente", nodeId);
         firebaseDataManager.init();
 
-        intent = new Intent(getApplicationContext(), BarberList.class);
+        intent = new Intent(getApplicationContext(), ClientList.class);
 
-        editName = findViewById(R.id.editNameBarberEdit);
-        editPhone = findViewById(R.id.editPhoneBarberEdit);
-        editEmail = findViewById(R.id.editEmailBarberEdit);
-        btSave = findViewById(R.id.btSaveBarberEdit);
-        btExclude = findViewById(R.id.btExcludeBarberEdit);
-        btCancel = findViewById(R.id.btCancelBarberEdit);
+        editName = findViewById(R.id.editNameClientEdit);
+        editPhone = findViewById(R.id.editPhoneClientEdit);
+        editEmail = findViewById(R.id.editEmailClientEdit);
+        btSave = findViewById(R.id.btSaveClientEdit);
+        btExclude = findViewById(R.id.btExcludeClientEdit);
+        btCancel = findViewById(R.id.btCancelClientEdit);
+
     }
-
     private void defineButtonsAction() {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                barber.setName(editName.getText().toString());
-                barber.setPhone(editPhone.getText().toString());
-                barber.setEmail(editEmail.getText().toString());
+                client.setName(editName.getText().toString());
+                client.setPhone(editPhone.getText().toString());
+                client.setMail(editEmail.getText().toString());
 
-                firebaseDataManager.getNodeReference().setValue(barber);
+                firebaseDataManager.getNodeReference().setValue(client);
                 startActivity(intent);
             }
         });
@@ -86,9 +86,9 @@ public class BarberEdit extends AppCompatActivity implements DataLoadListener <B
     }
 
     private void populateFields() {
-        editName.setText(barber.getName());
-        editEmail.setText(barber.getEmail());
-        editPhone.setText(barber.getPhone());
+        editName.setText(client.getName());
+        editEmail.setText(client.getMail());
+        editPhone.setText(client.getPhone());
     }
 
 }

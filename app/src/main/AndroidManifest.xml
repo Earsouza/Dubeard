@@ -15,34 +15,34 @@
         android:theme="@style/Theme.DuBeardIFSC"
         tools:targetApi="34">
         <activity
-            android:name=".activity.EditarServico"
+            android:name=".activity.barber.Control.ServiceEdit"
             android:exported="false" />
         <activity
-            android:name=".activity.EditarCliente"
+            android:name=".activity.barber.Control.ClientEdit"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.page.BarberEdit"
+            android:name=".activity.barber.Control.BarberEdit"
             android:exported="false" />
         <activity
-            android:name=".activity.ListaCliente"
+            android:name=".activity.barber.Control.ClientList"
             android:exported="false" />
         <activity
-            android:name=".activity.CadastraCliente"
+            android:name=".activity.barber.Control.ClientCreate"
             android:exported="false" />
         <activity
             android:name=".activity.Reservar"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.page.BarberList"
+            android:name=".activity.barber.Control.BarberList"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.page.BarberCreate"
+            android:name=".activity.barber.Control.BarberCreate"
             android:exported="false" />
         <activity
-            android:name=".activity.ListaServico"
+            android:name=".activity.barber.Control.ServiceList"
             android:exported="false" />
         <activity
-            android:name=".activity.CadastraServico"
+            android:name=".activity.barber.Control.ServiceCreate"
             android:exported="false" />
         <activity
             android:name=".activity.Cadastro"
@@ -52,6 +52,9 @@
             android:exported="false" />
         <activity
             android:name=".activity.PrincipalProfissional"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

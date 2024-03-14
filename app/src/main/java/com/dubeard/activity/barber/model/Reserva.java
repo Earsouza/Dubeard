@@ -1,4 +1,4 @@
-package com.dubeard.activity.model;
+package com.dubeard.activity.barber.model;
 
 import android.widget.Spinner;
 

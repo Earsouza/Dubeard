@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.CadastraCliente"
+    tools:context=".activity.barber.Control.ClientCreate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinza"
@@ -72,7 +72,7 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/btRemoverServico"
+        android:id="@+id/btCancelarCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -81,7 +81,7 @@
         android:backgroundTint="@color/black"
         android:layout_marginBottom="24dp"
         android:padding="15dp"
-        android:text="Remover"
+        android:text="Cancelar"
         android:textSize="20dp" />
 
     <Button

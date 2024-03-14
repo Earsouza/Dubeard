@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dubeard.R;
-import com.dubeard.activity.barber.page.BarberList;
+import com.dubeard.activity.barber.Control.BarberList;
+import com.dubeard.activity.barber.Control.ClientList;
+import com.dubeard.activity.barber.Control.ServiceList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -49,7 +51,6 @@ public class PrincipalProfissional extends AppCompatActivity {
         visualizarBarbeiro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), BarberList.class);
                 startActivity(intent);
                 finish();
@@ -60,7 +61,7 @@ public class PrincipalProfissional extends AppCompatActivity {
         visualizarServico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListaServico.class);
+                Intent intent = new Intent(getApplicationContext(), ServiceList.class);
                 startActivity(intent);
                 finish();
             }
@@ -69,8 +70,7 @@ public class PrincipalProfissional extends AppCompatActivity {
         cadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), ListaCliente.class);
+                Intent intent = new Intent(getApplicationContext(), ClientList.class);
                 startActivity(intent);
                 finish();
             }

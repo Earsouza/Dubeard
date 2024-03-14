@@ -1,16 +1,17 @@
+<!-- activity_main.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/listViewBarber"
+        android:id="@+id/listViewService"
         android:layout_width="match_parent"
         android:layout_height="549dp"
-        android:layout_above="@+id/btNewBarberList"
+        android:layout_above="@+id/btNewServiceList"
         android:layout_marginBottom="18dp" />
 
     <Button
-        android:id="@+id/btNewBarberList"
+        android:id="@+id/btNewServiceList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -24,7 +25,7 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/btCancelBarberList"
+        android:id="@+id/btCancelServiceList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -36,5 +37,4 @@
         android:padding="15dp"
         android:text="Cancelar"
         android:textSize="20dp" />
-
 </RelativeLayout>

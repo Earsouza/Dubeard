@@ -3,11 +3,9 @@ package com.dubeard.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,9 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.dubeard.R;
 import com.dubeard.activity.barber.model.Barber;
-import com.dubeard.activity.model.Cliente;
-import com.dubeard.activity.model.Reserva;
-import com.dubeard.activity.model.Servico;
+import com.dubeard.activity.barber.model.Reserva;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
@@ -91,20 +87,20 @@ public class Reservar extends AppCompatActivity {
     private void setupSpinnerServico() {
         reference =  FirebaseDatabase.getInstance().getReference().child("reserva");
 
-        ArrayAdapter<String> adapterServico = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, servicos);
-        adapterServico.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerServico.setAdapter(adapterServico);
+        //ArrayAdapter<String> adapterServico = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, servicos);
+        //adapterServico.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //spinnerServico.setAdapter(adapterServico);
 
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Servico service = snapshot.getValue(Servico.class);
+                /*Servico service = snapshot.getValue(Servico.class);
                 arrayListBarbers.add(
-                        new Servico(.getDescricao(),
-                                service.getValor())
-                );
+                        new Servico(service.getDescricao(),
+                                service.getValor()
+                );)
 
-                arrayAdapterBarbers.notifyDataSetChanged();
+                arrayAdapterBarbers.notifyDataSetChanged();*/
             }
 
             @Override
@@ -113,14 +109,14 @@ public class Reservar extends AppCompatActivity {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                 Barber barber = snapshot.getValue(Barber.class);
-                arrayListBarbers.remove(
+              /*  arrayListBarbers.remove(
                         new Barber(snapshot.getKey(),
                                 barber.getName(),
                                 barber.getPhone(),
                                 barber.getEmail())
                 );
 
-                arrayAdapterBarbers.notifyDataSetChanged();
+                arrayAdapterBarbers.notifyDataSetChanged();*/
             }
 
             @Override

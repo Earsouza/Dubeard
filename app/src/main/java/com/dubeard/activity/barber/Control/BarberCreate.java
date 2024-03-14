@@ -1,4 +1,4 @@
-package com.dubeard.activity.barber.page;
+package com.dubeard.activity.barber.Control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
