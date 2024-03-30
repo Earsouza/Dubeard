@@ -9,8 +9,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dubeard.R;
-import com.dubeard.activity.PrincipalProfissional;
-import com.dubeard.activity.barber.Control.ServiceList;
+import com.dubeard.activity.MainAdministrator;
 import com.dubeard.activity.barber.model.Service;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,7 +32,7 @@ public class ServiceCreate extends AppCompatActivity {
         btVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+                Intent intent = new Intent(getApplicationContext(), MainAdministrator.class);
                 startActivity(intent);
             }
         });
@@ -79,7 +78,7 @@ public class ServiceCreate extends AppCompatActivity {
         super.onBackPressed();
 
         // Defina a tela de destino que você deseja abrir ao pressionar o botão de voltar
-        Intent intent = new Intent(this, PrincipalProfissional.class);
+        Intent intent = new Intent(this, MainAdministrator.class);
 
         // Adicione flags para limpar a pilha de atividades, se desejar
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

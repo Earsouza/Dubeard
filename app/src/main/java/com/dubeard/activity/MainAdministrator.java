@@ -14,7 +14,7 @@ import com.dubeard.activity.barber.Control.ServiceList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class PrincipalProfissional extends AppCompatActivity {
+public class MainAdministrator extends AppCompatActivity {
 
     FirebaseAuth auth;
     Button sair, visualizarServico, visualizarBarbeiro, cadastrarCliente;

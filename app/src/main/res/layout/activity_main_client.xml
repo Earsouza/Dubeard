@@ -7,7 +7,7 @@
     android:background="@color/cinza"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".activity.PrincipalCliente">
+    tools:context=".activity.MainClient">
 
     <TextView
         android:id="@+id/infoUsuario"

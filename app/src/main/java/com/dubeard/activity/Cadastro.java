@@ -16,11 +16,9 @@ import android.widget.Toast;
 import com.dubeard.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.ktx.Firebase;
 
 public class Cadastro extends AppCompatActivity {
 
@@ -39,7 +37,7 @@ public class Cadastro extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), PrincipalCliente.class);
+            Intent intent = new Intent(getApplicationContext(), MainClient.class);
             startActivity(intent);
             finish();
         }

@@ -48,10 +48,10 @@
             android:name=".activity.Cadastro"
             android:exported="false" />
         <activity
-            android:name=".activity.PrincipalCliente"
+            android:name=".activity.MainClient"
             android:exported="false" />
         <activity
-            android:name=".activity.PrincipalProfissional"
+            android:name=".activity.MainAdministrator"
             android:exported="false" />
         <activity
             android:name=".activity.Login"
@@ -62,6 +62,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

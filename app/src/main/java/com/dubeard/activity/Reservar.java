@@ -44,7 +44,7 @@ public class Reservar extends AppCompatActivity {
         btVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PrincipalCliente.class);
+                Intent intent = new Intent(getApplicationContext(), MainClient.class);
                 startActivity(intent);
             }
         });
@@ -138,7 +138,7 @@ public class Reservar extends AppCompatActivity {
                 reference.push().setValue(new Reserva(servicoSelecionado, horarioSelecionado));
 
                 reference.push().setValue(spinnerServico.getSelectedItem().toString(),spinnerHorario.getSelectedItem().toString());
-                Intent intent = new Intent(getApplicationContext(), PrincipalCliente.class);
+                Intent intent = new Intent(getApplicationContext(), MainClient.class);
                 startActivity(intent);
             }
         });

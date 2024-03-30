@@ -12,7 +12,7 @@ import com.dubeard.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class PrincipalCliente extends AppCompatActivity {
+public class MainClient extends AppCompatActivity {
 
     FirebaseAuth auth;
     Button sair, btReservar;
@@ -21,7 +21,7 @@ public class PrincipalCliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_principal_cliente);
+        setContentView(R.layout.activity_main_client);
 
         auth = FirebaseAuth.getInstance();
         btReservar = findViewById(R.id.btReservar);

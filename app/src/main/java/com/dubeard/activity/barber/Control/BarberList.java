@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.dubeard.R;
-import com.dubeard.activity.PrincipalProfissional;
+import com.dubeard.activity.MainAdministrator;
 import com.dubeard.activity.barber.model.Barber;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -90,7 +90,7 @@ public class BarberList extends AppCompatActivity {
     }
 
     public void initComponents() {
-        intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+        intent = new Intent(getApplicationContext(), MainAdministrator.class);
         listView = findViewById(R.id.listViewBarber);
         btNew = findViewById(R.id.btNewBarberList);
         btCancel = findViewById(R.id.btCancelBarberList);

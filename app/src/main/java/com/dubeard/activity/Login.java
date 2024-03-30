@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), PrincipalCliente.class);
+            Intent intent = new Intent(getApplicationContext(), MainClient.class);
             startActivity(intent);
             finish();
         }
@@ -63,8 +63,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password, adminSenha;
-                adminSenha = "admin@admin.com";
+                String email, password;
+                String adminMail = "admin@admin.com";
+                String barberMail = "barbeiro@barbeiro.com";
                 email = String.valueOf(editTextMail.getText());
                 password = String.valueOf(editTextPassword.getText());
 
@@ -84,12 +85,16 @@ public class Login extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                    if (email.equals(adminSenha)) {
-                                        Intent intent = new Intent(getApplicationContext(), PrincipalProfissional.class);
+                                    if (email.equals(adminMail)) {
+                                        Intent intent = new Intent(getApplicationContext(), MainAdministrator.class);
                                         startActivity(intent);
                                         finish();
-                                    } else {
-                                        Intent intent = new Intent(getApplicationContext(), PrincipalCliente.class);
+                                    } else if (email.equals(barberMail)){
+                                        Intent intent = new Intent(getApplicationContext(), MainBarber.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }else {
+                                        Intent intent = new Intent(getApplicationContext(), MainClient.class);
                                         startActivity(intent);
                                         finish();
                                     }

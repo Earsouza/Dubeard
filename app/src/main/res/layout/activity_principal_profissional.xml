@@ -7,7 +7,7 @@
     android:background="@color/cinza"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".activity.PrincipalProfissional">
+    tools:context=".activity.MainAdministrator">
 
     <TextView
         android:layout_width="wrap_content"

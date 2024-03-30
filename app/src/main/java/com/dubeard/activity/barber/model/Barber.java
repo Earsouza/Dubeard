@@ -1,5 +1,7 @@
 package com.dubeard.activity.barber.model;
 
+import java.util.ArrayList;
+
 public class Barber {
     private String id;
     private String name;
