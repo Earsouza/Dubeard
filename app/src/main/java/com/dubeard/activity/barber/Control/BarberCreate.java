@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.dubeard.R;
 import com.dubeard.activity.MainAdministrator;
@@ -17,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class BarberCreate extends AppCompatActivity {
 
     EditText nome, telefone, email;
+
+    CheckBox checkCabelo, checkBarba, checkSobrancelha;
     Button btCadastrarBarbeiro, btVoltar, btCancelar;
 
     DatabaseReference reference;
@@ -52,6 +57,11 @@ public class BarberCreate extends AppCompatActivity {
         btCadastrarBarbeiro = findViewById(R.id.btCadastraBarbeiro);
         btVoltar = findViewById(R.id.btvoltar);
         btCancelar = findViewById(R.id.btCancelar);
+        checkCabelo = findViewById(R.id.checkBoxHair);
+        checkBarba = findViewById(R.id.checkBoxBeard);
+        checkSobrancelha = findViewById(R.id.checkBoxEyebrow);
+
+
     }
 
     public void createBarber() {
@@ -66,6 +76,34 @@ public class BarberCreate extends AppCompatActivity {
                         email.getText().toString()));
                 Intent intent = new Intent(getApplicationContext(), BarberList.class);
                 startActivity(intent);
+            }
+        });
+
+        checkCabelo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    //envia para firebase
+                }
+            }
+        });
+
+        checkBarba.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    //envia para firebase
+                    Toast.makeText(getApplicationContext(), "deu boa", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        checkSobrancelha.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    //envia para firebase
+                }
             }
         });
     }

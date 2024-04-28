@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.dubeard.R;
 import com.dubeard.activity.barber.model.Barber;
 import com.dubeard.activity.barber.model.Reserva;
+import com.dubeard.activity.barber.model.Service;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
@@ -108,7 +109,7 @@ public class Reservar extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                Barber barber = snapshot.getValue(Barber.class);
+                Service service = snapshot.getValue(Service.class);
               /*  arrayListBarbers.remove(
                         new Barber(snapshot.getKey(),
                                 barber.getName(),
