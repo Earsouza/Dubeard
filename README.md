@@ -7,3 +7,4 @@ PI - Aplicativo para agendamento de horário nas barbearias
 - Login de Funcionário
 - Apresentar tela com funcionalidades para Cliente
 - Apresentar tela com funcionalidades para Funcionário
+- Perfil Barbeiro - Visualização de Agendamentos
