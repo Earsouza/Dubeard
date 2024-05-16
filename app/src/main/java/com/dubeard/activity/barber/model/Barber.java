@@ -8,13 +8,18 @@ public class Barber {
     private String phone;
     private String email;
 
-    public Barber() { }
+    //private ArrayList<GrupoServicos> grupoServicos;
+
+
+    public Barber() {
+    }
 
     public Barber(String name, String phone, String email) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
+        //this.grupoServicos = new ArrayList<>();
     }
 
     public Barber(String id, String name, String phone, String email) {
@@ -23,6 +28,7 @@ public class Barber {
         this.phone = phone;
         this.email = email;
     }
+
 
     public String getId() {
         return id;
@@ -58,7 +64,7 @@ public class Barber {
 
     @Override
     public String toString() {
-        return  "Name: " + name + "\n" + "Phone: " + phone + "\n"+ "E-mail: " + email;
+        return "Name: " + name + "\n" + "Phone: " + phone + "\n" + "E-mail: " + email;
     }
 
 }

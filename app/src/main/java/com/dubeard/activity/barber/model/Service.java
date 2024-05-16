@@ -6,7 +6,8 @@ public class Service {
     private String descricao;
     private String valor;
 
-    public Service(){}
+    public Service() {
+    }
 
     public Service(String descricao, String valor) {
         this.descricao = descricao;
@@ -22,6 +23,7 @@ public class Service {
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }

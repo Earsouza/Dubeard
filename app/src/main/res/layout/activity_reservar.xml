@@ -28,7 +28,7 @@
         />
 
     <Spinner
-        android:id="@+id/spinnerHorario"
+        android:id="@+id/spinnerServico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -49,7 +49,7 @@
         android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spinnerServico"
+        android:id="@+id/spinnerHorario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

@@ -51,6 +51,9 @@
             android:name=".activity.MainClient"
             android:exported="false" />
         <activity
+            android:name=".activity.MainBarber"
+            android:exported="false" />
+        <activity
             android:name=".activity.MainAdministrator"
             android:exported="false" />
         <activity

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -25,22 +26,63 @@ public class Reservar extends AppCompatActivity {
     private Spinner spinnerHorario, spinnerServico;
     private Button btReservar, btVoltar;
 
-    DatabaseReference reference;
-
+    DatabaseReference databaseReference;
+    ArrayAdapter<Service> arrayAdapterServices;
+    ArrayList<Service> arrayListServices = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservar);
 
-        spinnerHorario = findViewById(R.id.spinnerHorario);
-        spinnerServico = findViewById(R.id.spinnerServico);
-        btReservar = findViewById(R.id.btReservar);
-        btVoltar = findViewById(R.id.btvoltar);
+        initComponents();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("reserva");
+
+        arrayAdapterServices = new ArrayAdapter<Service>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayListServices);
+        spinnerServico.setAdapter(arrayAdapterServices);
 
         setupSpinnerHorario();
-        setupSpinnerServico();
-        processar();
+
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Service service = snapshot.getValue(Service.class);
+                arrayListServices.add(
+                        new Service(snapshot.getKey(),
+                                service.getDescricao(),
+                                service.getValor())
+                );
+
+                arrayAdapterServices.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Service service = snapshot.getValue(Service.class);
+              /*  arrayListBarbers.remove(
+                        new Barber(snapshot.getKey(),
+                                barber.getName(),
+                                barber.getPhone(),
+                                barber.getEmail())
+                );
+
+                arrayAdapterBarbers.notifyDataSetChanged();*/
+            }
+
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
 
         btVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,9 +91,16 @@ public class Reservar extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        processar();
+
     }
-
-
+    private void initComponents() {
+        spinnerHorario = findViewById(R.id.spinnerHorario);
+        spinnerServico = findViewById(R.id.spinnerServico);
+        btReservar = findViewById(R.id.btReservar);
+        btVoltar = findViewById(R.id.btvoltar);
+    }
     private void setupSpinnerHorario() {
         List<String> horarios = new ArrayList<>();
         horarios.add("08:00");
@@ -85,60 +134,16 @@ public class Reservar extends AppCompatActivity {
         spinnerHorario.setAdapter(adapterHorario);
     }
 
-    private void setupSpinnerServico() {
-        reference =  FirebaseDatabase.getInstance().getReference().child("reserva");
-
-        //ArrayAdapter<String> adapterServico = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, servicos);
-        //adapterServico.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //spinnerServico.setAdapter(adapterServico);
-
-        reference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                /*Servico service = snapshot.getValue(Servico.class);
-                arrayListBarbers.add(
-                        new Servico(service.getDescricao(),
-                                service.getValor()
-                );)
-
-                arrayAdapterBarbers.notifyDataSetChanged();*/
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                Service service = snapshot.getValue(Service.class);
-              /*  arrayListBarbers.remove(
-                        new Barber(snapshot.getKey(),
-                                barber.getName(),
-                                barber.getPhone(),
-                                barber.getEmail())
-                );
-
-                arrayAdapterBarbers.notifyDataSetChanged();*/
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) { }
-        });
-    }
-
     private void processar() {
         String horarioSelecionado = spinnerHorario.getSelectedItem().toString();
         String servicoSelecionado = spinnerServico.getSelectedItem().toString();
 
-        reference =  FirebaseDatabase.getInstance().getReference().child("reserva");
         btReservar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reference.push().setValue(new Reserva(servicoSelecionado, horarioSelecionado));
+                databaseReference.push().setValue(new Reserva(servicoSelecionado, horarioSelecionado));
 
-                reference.push().setValue(spinnerServico.getSelectedItem().toString(),spinnerHorario.getSelectedItem().toString());
+                databaseReference.push().setValue(spinnerServico.getSelectedItem().toString(),spinnerHorario.getSelectedItem().toString());
                 Intent intent = new Intent(getApplicationContext(), MainClient.class);
                 startActivity(intent);
             }
