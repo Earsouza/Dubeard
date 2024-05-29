@@ -48,4 +48,10 @@ public class Reserva {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String toString() {
+
+        return "Servico:" + servico + "\n" + "Horário:" + horario + "\n";
+    }
+
 }
