@@ -37,12 +37,9 @@ public class Reservar extends AppCompatActivity {
 
         initComponents();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("reserva");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("servico");
 
-        arrayAdapterServices = new ArrayAdapter<Service>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayListServices);
-        spinnerServico.setAdapter(arrayAdapterServices);
-
-        setupSpinnerHorario();
+        //setupSpinnerHorario();
 
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
@@ -92,11 +89,14 @@ public class Reservar extends AppCompatActivity {
             }
         });
 
-        processar();
+        arrayAdapterServices = new ArrayAdapter<Service>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayListServices);
+        spinnerServico.setAdapter(arrayAdapterServices);
+
+        //processar();
 
     }
     private void initComponents() {
-        spinnerHorario = findViewById(R.id.spinnerHorario);
+       /* spinnerHorario = findViewById(R.id.spinnerHorario);
         spinnerServico = findViewById(R.id.spinnerServico);
         btReservar = findViewById(R.id.btReservar);
         btVoltar = findViewById(R.id.btvoltar);
@@ -147,7 +147,7 @@ public class Reservar extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainClient.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
 }

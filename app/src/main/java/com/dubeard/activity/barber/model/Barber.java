@@ -1,25 +1,37 @@
 package com.dubeard.activity.barber.model;
 
-import java.util.ArrayList;
-
 public class Barber {
     private String id;
     private String name;
     private String phone;
     private String email;
 
-    //private ArrayList<GrupoServicos> grupoServicos;
+    private boolean isCabelo;
+
+    private boolean isBarba;
+
+    private boolean isSobrancelha;
 
 
     public Barber() {
     }
 
-    public Barber(String name, String phone, String email) {
+    public Barber(String id, String name, String phone, String email, boolean isCabelo, boolean isBarba, boolean isSobrancelha) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
-        //this.grupoServicos = new ArrayList<>();
+        this.isCabelo = isCabelo;
+        this.isBarba = isBarba;
+        this.isSobrancelha = isSobrancelha;
+    }
+    public Barber(String id, String name, String phone, boolean isCabelo, boolean isBarba, boolean isSobrancelha) {
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.isCabelo = isCabelo;
+        this.isBarba = isBarba;
+        this.isSobrancelha = isSobrancelha;
     }
 
     public Barber(String id, String name, String phone, String email) {
@@ -28,7 +40,6 @@ public class Barber {
         this.phone = phone;
         this.email = email;
     }
-
 
     public String getId() {
         return id;
@@ -60,6 +71,30 @@ public class Barber {
 
     public void setEmail(String mail) {
         this.email = mail;
+    }
+
+    public boolean isCabelo() {
+        return isCabelo;
+    }
+
+    public void setIsCabelo(boolean isCabelo) {
+        this.isCabelo = isCabelo;
+    }
+
+    public boolean isBarba() {
+        return isBarba;
+    }
+
+    public void setIsBarba(boolean isBarba) {
+        this.isBarba = isBarba;
+    }
+
+    public boolean isSobrancelha() {
+        return isSobrancelha;
+    }
+
+    public void setIsSobrancelha(boolean isSobrancelha) {
+        this.isSobrancelha = isSobrancelha;
     }
 
     @Override

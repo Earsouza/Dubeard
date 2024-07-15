@@ -26,8 +26,8 @@ public class MainClient extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         btReservar = findViewById(R.id.btReservar);
         sair = findViewById(R.id.deslogar);
-        textView = findViewById(R.id.infoUsuario);
-        user = auth.getCurrentUser();
+        // textView = findViewById(R.id.infoUsuario);
+        // user = auth.getCurrentUser();
 
         if(user == null){
             Intent intent = new Intent(getApplicationContext(), Login.class);

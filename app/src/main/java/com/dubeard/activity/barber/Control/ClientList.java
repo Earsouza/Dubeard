@@ -40,7 +40,7 @@ public class ClientList extends AppCompatActivity {
 
         initComponents();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("cliente");
+        databaseReference = FirebaseDatabase.getInstance().getReference("usuario");
 
 
         arrayAdapterClients = new ArrayAdapter<Client>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayListClients);

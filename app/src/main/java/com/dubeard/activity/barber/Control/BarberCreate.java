@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.dubeard.R;
 import com.dubeard.activity.MainAdministrator;
@@ -25,7 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 public class BarberCreate extends AppCompatActivity {
 
     EditText nome, telefone, email;
-
     int i = 0;
 
     CheckBox checkCabelo, checkBarba, checkSobrancelha;
@@ -33,7 +30,6 @@ public class BarberCreate extends AppCompatActivity {
 
     DatabaseReference reference;
     GrupoServicos grupo = new GrupoServicos();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,14 +66,9 @@ public class BarberCreate extends AppCompatActivity {
         checkCabelo = findViewById(R.id.checkBoxHair);
         checkBarba = findViewById(R.id.checkBoxBeard);
         checkSobrancelha = findViewById(R.id.checkBoxEyebrow);
-
-
     }
 
     public void createBarber() {
-        String hair = "Cabelo";
-        String beard = "Barba";
-        String eyebrow = "Sobrancelha";
         reference = FirebaseDatabase.getInstance().getReference().child("barbeiro");
 
         reference.addValueEventListener(new ValueEventListener() {
@@ -90,43 +81,44 @@ public class BarberCreate extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle possible errors.
             }
         });
-
 
         btCadastrarBarbeiro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Barber barber = new Barber();
+
+                if (checkCabelo.isChecked()) {
+                    barber.setIsCabelo(true);
+                } else {
+                    barber.setIsCabelo(false);
+                }
+                if (checkBarba.isChecked()) {
+                    barber.setIsBarba(true);
+                } else {
+                    barber.setIsBarba(false);
+                }
+                if (checkSobrancelha.isChecked()) {
+                    barber.setIsSobrancelha(true);
+                } else {
+                    barber.setIsSobrancelha(false);
+                }
+
                 reference.push().setValue(new Barber(
                         nome.getText().toString(),
                         telefone.getText().toString(),
-                        email.getText().toString()));
+                        email.getText().toString(),
+                        barber.isCabelo(),
+                        barber.isBarba(),
+                        barber.isSobrancelha()
+                ));
+
                 Intent intent = new Intent(getApplicationContext(), BarberList.class);
                 startActivity(intent);
-
-                if (checkCabelo.isChecked()) {
-                    grupo.setCabelo(hair);
-                    reference.child(String.valueOf(i)).setValue(grupo);
-                } else {
-
-                }
-                if (checkBarba.isChecked()) {
-                    grupo.setBarba(beard);
-                    reference.child(String.valueOf(i)).setValue(grupo);
-                } else {
-
-                }
-                if (checkSobrancelha.isChecked()) {
-                    grupo.setSobrancelha(eyebrow);
-                    reference.child(String.valueOf(i)).setValue(grupo);
-                } else {
-
-                }
-
             }
         });
-
     }
 
     private void clearInput() {

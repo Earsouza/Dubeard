@@ -56,7 +56,7 @@ public class ClientCreate extends AppCompatActivity {
     }
 
     public void createClient() {
-        reference = FirebaseDatabase.getInstance().getReference().child("cliente");
+        reference = FirebaseDatabase.getInstance().getReference().child("usuario");
 
         btCadastrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
