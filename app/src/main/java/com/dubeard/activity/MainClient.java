@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainClient extends AppCompatActivity {
-
     FirebaseAuth auth;
     Button sair, btReservar;
     FirebaseUser user;
@@ -26,17 +25,13 @@ public class MainClient extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         btReservar = findViewById(R.id.btReservar);
         sair = findViewById(R.id.deslogar);
-        // textView = findViewById(R.id.infoUsuario);
-        // user = auth.getCurrentUser();
+        user = auth.getCurrentUser();
 
-        if(user == null){
+       /* if(user == null) {
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
-        }
-        else{
-            textView.setText(user.getEmail());
-        }
+        }*/
 
         btReservar.setOnClickListener(new View.OnClickListener() {
             @Override

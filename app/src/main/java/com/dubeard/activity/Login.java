@@ -78,7 +78,7 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this, "Informe a senha", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                mAuth.signInWithEmailAndPassword(email, password)
+               mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
