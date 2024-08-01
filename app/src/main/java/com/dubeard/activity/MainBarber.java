@@ -47,8 +47,8 @@ public class MainBarber extends AppCompatActivity {
                 Reserva reserva = snapshot.getValue(Reserva.class);
                 arrayListReservas.add(
                         new Reserva(snapshot.getKey(),
-                                reserva.getServico(),
-                                reserva.getHorario())
+                                reserva.getHorario(),
+                                reserva.getServico())
                 );
 
                 arrayAdapterReservas.notifyDataSetChanged();

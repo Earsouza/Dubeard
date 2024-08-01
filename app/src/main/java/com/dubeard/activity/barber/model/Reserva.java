@@ -51,7 +51,7 @@ public class Reserva {
 
     public String toString() {
 
-        return "Servico:" + servico + "\n" + "Horário:" + horario + "\n";
+        return "Horário:" + horario + "\n" + "Servico:" + servico + "\n";
     }
 
 }
