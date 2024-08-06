@@ -1,4 +1,4 @@
-package com.dubeard.activity.barber.Control;
+package com.dubeard.activity.Admin.Control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.dubeard.R;
-import com.dubeard.activity.barber.model.Client;
+import com.dubeard.activity.Admin.model.Client;
 import com.dubeard.firebase.DataLoadListener;
 import com.dubeard.firebase.FirebaseDataManager;
 

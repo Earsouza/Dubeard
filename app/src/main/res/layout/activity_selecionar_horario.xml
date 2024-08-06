@@ -6,7 +6,7 @@
     android:background="@color/cinza"
     android:gravity="left"
     android:orientation="vertical"
-    tools:context=".activity.Reservar">
+    tools:context=".activity.Reserva.SelecionarHorario">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:gravity="center"
-        android:text="Reservar Atendimento"
+        android:text="Selecionar Horário"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -68,22 +68,6 @@
         android:text="Horário Selecionado"
         android:textSize="20sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:text="Selecione um Serviço"
-        android:textSize="20sp" />
-
-    <Spinner
-        android:id="@+id/spinnerServicos"
-        android:layout_width="362dp"
-        android:layout_height="56dp"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:layout_marginTop="16dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,20 +82,7 @@
             android:layout_marginEnd="20dp"
             android:backgroundTint="@color/azul"
             android:padding="15dp"
-            android:text="Cadastrar"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/btCancelarReserva"
-            android:layout_width="164dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="20dp"
-            android:backgroundTint="@android:color/holo_red_dark"
-            android:padding="15dp"
-            android:text="Cancelar"
+            android:text="Reservar"
             android:textColor="@color/white"
             android:textSize="20dp" />
 

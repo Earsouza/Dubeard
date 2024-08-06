@@ -1,4 +1,4 @@
-package com.dubeard;
+package com.dubeard.firebase;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;

@@ -9,10 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/cinza"
+        android:background="@drawable/background"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="0dp">
 
         <ImageView
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:padding="20dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/img_incial" />
 
         <EditText
             android:id="@+id/editEmail"

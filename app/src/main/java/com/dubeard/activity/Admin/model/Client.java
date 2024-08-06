@@ -1,4 +1,4 @@
-package com.dubeard.activity.barber.model;
+package com.dubeard.activity.Admin.model;
 
 public class Client {
     private String id;

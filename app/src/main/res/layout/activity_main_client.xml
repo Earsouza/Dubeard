@@ -7,7 +7,7 @@
     android:background="@color/cinza"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".activity.MainClient">
+    tools:context=".activity.Reserva.MainClient">
 
     <TextView
         android:layout_width="wrap_content"

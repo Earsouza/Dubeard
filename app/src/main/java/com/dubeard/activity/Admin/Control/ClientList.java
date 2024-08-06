@@ -1,4 +1,4 @@
-package com.dubeard.activity.barber.Control;
+package com.dubeard.activity.Admin.Control;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,8 +13,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.dubeard.R;
-import com.dubeard.activity.MainAdministrator;
-import com.dubeard.activity.barber.model.Service;
+import com.dubeard.activity.Admin.model.Client;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,64 +22,69 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class ServiceList extends AppCompatActivity {
+public class ClientList extends AppCompatActivity {
 
     Button btNew;
     Button btCancel;
     Intent intent;
     ListView listView;
     DatabaseReference databaseReference;
-    ArrayAdapter<Service> arrayAdapterServices;
-    ArrayList<Service>  arrayListServices = new ArrayList<>();
-
+    ArrayAdapter<Client> arrayAdapterClients;
+    ArrayList<Client> arrayListClients = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_service_list);
+        setContentView(R.layout.activity_client_list);
 
         initComponents();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("servico");
+        databaseReference = FirebaseDatabase.getInstance().getReference("usuario");
 
-        arrayAdapterServices = new ArrayAdapter<Service>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayListServices);
-        listView.setAdapter(arrayAdapterServices);
+
+        arrayAdapterClients = new ArrayAdapter<Client>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayListClients);
+        listView.setAdapter(arrayAdapterClients);
 
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Service service = snapshot.getValue(Service.class);
-                arrayListServices.add(
-                        new Service(snapshot.getKey(),
-                                service.getDescricao(),
-                                service.getValor())
+                Client client = snapshot.getValue(Client.class);
+                arrayListClients.add(
+                        new Client(snapshot.getKey(),
+                                client.getName(),
+                                client.getPhone(),
+                                client.getMail())
                 );
+                arrayAdapterClients.notifyDataSetChanged();
 
-                arrayAdapterServices.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                Service service = snapshot.getValue(Service.class);
-                arrayListServices.remove(
-                        new Service(snapshot.getKey(),
-                                service.getDescricao(),
-                                service.getValor())
+                Client client = snapshot.getValue(Client.class);
+                arrayListClients.remove(
+                        new Client(snapshot.getKey(),
+                                client.getName(),
+                                client.getPhone(),
+                                client.getMail())
                 );
 
-                arrayAdapterServices.notifyDataSetChanged();
+                arrayAdapterClients.notifyDataSetChanged();
             }
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
@@ -90,16 +94,16 @@ public class ServiceList extends AppCompatActivity {
 
     public void initComponents() {
         intent = new Intent(getApplicationContext(), MainAdministrator.class);
-        listView = findViewById(R.id.listViewService);
-        btNew = findViewById(R.id.btNewServiceList);
-        btCancel = findViewById(R.id.btCancelServiceList);
+        listView = findViewById(R.id.listViewClient);
+        btNew = findViewById(R.id.btNewClientList);
+        btCancel = findViewById(R.id.btCancelClientList);
     }
 
     private void defineButtonsAction() {
         btNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(getApplicationContext(), ServiceCreate.class);
+                intent = new Intent(getApplicationContext(), ClientCreate.class);
                 startActivity(intent);
                 finish();
             }
@@ -117,12 +121,14 @@ public class ServiceList extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Service selectedService = (Service) parent.getItemAtPosition(position);
-                Intent intent = new Intent(ServiceList.this, ServiceEdit.class);
-                intent.putExtra("id", selectedService.getId());
+                Client selectedClient = (Client) parent.getItemAtPosition(position);
+                Intent intent = new Intent(ClientList.this, ClientEdit.class);
+                intent.putExtra("id", selectedClient.getId());
                 startActivity(intent);
                 finish();
             }
         });
     }
+
+
 }

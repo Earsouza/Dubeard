@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.barber.Control.ClientEdit"
+    tools:context=".activity.Admin.Control.ClientEdit"
     android:background="@color/cinza"
     android:orientation="vertical">
 

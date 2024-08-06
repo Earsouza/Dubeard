@@ -1,4 +1,4 @@
-package com.dubeard.activity;
+package com.dubeard.activity.Barbeiro;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,8 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.dubeard.R;
-import com.dubeard.activity.barber.model.Barber;
-import com.dubeard.activity.barber.model.Reserva;
+import com.dubeard.activity.Admin.model.Reserva;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

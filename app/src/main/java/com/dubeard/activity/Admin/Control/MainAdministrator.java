@@ -1,4 +1,4 @@
-package com.dubeard.activity;
+package com.dubeard.activity.Admin.Control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dubeard.R;
-import com.dubeard.activity.barber.Control.BarberList;
-import com.dubeard.activity.barber.Control.ClientList;
-import com.dubeard.activity.barber.Control.ServiceList;
+import com.dubeard.activity.Admin.Control.BarberList;
+import com.dubeard.activity.Admin.Control.ClientList;
+import com.dubeard.activity.Admin.Control.ServiceList;
+import com.dubeard.activity.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

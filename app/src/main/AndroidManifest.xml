@@ -15,46 +15,52 @@
         android:theme="@style/Theme.DuBeardIFSC"
         tools:targetApi="34">
         <activity
-            android:name=".activity.barber.Control.ServiceEdit"
+            android:name=".activity.Reserva.SelecionarProfissional"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.ClientEdit"
+            android:name=".activity.Reserva.SelecionarHorario"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.BarberEdit"
+            android:name=".activity.Admin.Control.ServiceEdit"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.ClientList"
+            android:name=".activity.Admin.Control.ClientEdit"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.ClientCreate"
+            android:name=".activity.Admin.Control.BarberEdit"
             android:exported="false" />
         <activity
-            android:name=".activity.Reservar"
+            android:name=".activity.Admin.Control.ClientList"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.BarberList"
+            android:name=".activity.Admin.Control.ClientCreate"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.BarberCreate"
+            android:name=".activity.Reserva.SelecionarServico"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.ServiceList"
+            android:name=".activity.Admin.Control.BarberList"
             android:exported="false" />
         <activity
-            android:name=".activity.barber.Control.ServiceCreate"
+            android:name=".activity.Admin.Control.BarberCreate"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Admin.Control.ServiceList"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Admin.Control.ServiceCreate"
             android:exported="false" />
         <activity
             android:name=".activity.Cadastro"
             android:exported="false" />
         <activity
-            android:name=".activity.MainClient"
+            android:name=".activity.Reserva.MainClient"
             android:exported="false" />
         <activity
-            android:name=".activity.MainBarber"
+            android:name=".activity.Barbeiro.MainBarber"
             android:exported="false" />
         <activity
-            android:name=".activity.MainAdministrator"
+            android:name=".activity.Admin.Control.MainAdministrator"
             android:exported="false" />
         <activity
             android:name=".activity.Login"

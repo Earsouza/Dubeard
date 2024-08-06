@@ -1,5 +1,4 @@
-package com.dubeard.activity.barber.Control;
-
+package com.dubeard.activity.Admin.Control;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.dubeard.R;
-import com.dubeard.activity.MainAdministrator;
-import com.dubeard.activity.barber.model.Barber;
-import com.dubeard.activity.barber.model.GrupoServicos;
+import com.dubeard.activity.Admin.model.Barber;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,7 +26,6 @@ public class BarberCreate extends AppCompatActivity {
     Button btCadastrarBarbeiro, btVoltar, btCancelar;
 
     DatabaseReference reference;
-    GrupoServicos grupo = new GrupoServicos();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

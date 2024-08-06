@@ -1,12 +1,6 @@
-package com.dubeard.activity.barber.model;
-
-import android.widget.Spinner;
-
-import java.util.Date;
+package com.dubeard.activity.Admin.model;
 
 public class Reserva {
-    private Spinner spinnerHorario, spinnerServico;
-
     private String id;
     private String horario;
     private String servico;
@@ -23,6 +17,9 @@ public class Reserva {
     }
 
     public Reserva() {
+    }
+
+    public Reserva(String toString, String toString1, String descricao, String name) {
     }
 
     public String getHorario() {

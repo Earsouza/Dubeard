@@ -14,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dubeard.R;
+import com.dubeard.activity.Admin.Control.MainAdministrator;
+import com.dubeard.activity.Barbeiro.MainBarber;
+import com.dubeard.activity.Reserva.MainClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

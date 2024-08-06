@@ -1,4 +1,4 @@
-package com.dubeard.activity.barber.Control;
+package com.dubeard.activity.Admin.Control;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dubeard.R;
-import com.dubeard.activity.MainAdministrator;
-import com.dubeard.activity.barber.model.Service;
+import com.dubeard.activity.Admin.model.Service;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

@@ -1,5 +1,4 @@
-package com.dubeard.activity.barber.model;
-
+package com.dubeard.activity.Admin.model;
 public class Barber {
     private String id;
     private String name;
@@ -16,30 +15,23 @@ public class Barber {
     public Barber() {
     }
 
-    public Barber(String id, String name, String phone, String email, boolean isCabelo, boolean isBarba, boolean isSobrancelha) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
+    public Barber(String nome, String telefone, String email, boolean cabelo, boolean barba, boolean sobrancelha) {
+        this.name = nome;
+        this.phone = telefone;
         this.email = email;
-        this.isCabelo = isCabelo;
-        this.isBarba = isBarba;
-        this.isSobrancelha = isSobrancelha;
     }
-    public Barber(String id, String name, String phone, boolean isCabelo, boolean isBarba, boolean isSobrancelha) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.isCabelo = isCabelo;
-        this.isBarba = isBarba;
-        this.isSobrancelha = isSobrancelha;
-    }
-
     public Barber(String id, String name, String phone, String email) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.email = email;
     }
+
+    public Barber(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
 
     public String getId() {
         return id;
