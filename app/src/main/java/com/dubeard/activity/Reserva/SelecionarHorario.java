@@ -29,15 +29,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
-public class SelecionarHorario extends SelecionarServico {
+public class SelecionarHorario extends AppCompatActivity {
 
-    private Button btnDatePicker, btnTimePicker, btReservar, btVoltar;
+    private Button btReservar;
+    private ListView listViewHorarios;
+    private TextView textSelectedTime;
+    private ArrayList<String> intervaloTempo;
 
-    private TextView textSelectedDate, textSelectedTime;
-
-    private final String tag = "DATE_TAG";
 
     int i = 0;
 
@@ -46,61 +47,37 @@ public class SelecionarHorario extends SelecionarServico {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecionar_horario);
 
+        intervaloTempo = new ArrayList<>();
+
         initComponents();
-        setupDatePicker();
-        setupTimePicker();
+        popularIntervalos();
         setupReservaButton();
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_single_choice, intervaloTempo);
+        listViewHorarios.setAdapter(adapter);
+        listViewHorarios.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        listViewHorarios.setAdapter(adapter);
 
     }
 
-    private void initComponents(){
-        btnDatePicker = findViewById(R.id.btn_date_picker);
-        btnTimePicker = findViewById(R.id.btn_time_picker);
+    private void initComponents() {
+        listViewHorarios = findViewById(R.id.listViewHorarios);
+
         btReservar = findViewById(R.id.btReservar);
     }
 
-    private void setupDatePicker() {
-        MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
-        MaterialDatePicker materialDatePicker = builder.build();
 
-        btnDatePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                materialDatePicker.show(getSupportFragmentManager(), tag);
-                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-                    @Override
-                    public void onPositiveButtonClick(Object selection) {
-                        textSelectedDate.setText(materialDatePicker.getHeaderText());
-                    }
-                });
-            }
-        });
-    }
+    private void popularIntervalos() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
 
-    private void setupTimePicker() {
-        btnTimePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                int mins = calendar.get(Calendar.MINUTE);
-
-                TimePickerDialog timePickerDialog = new TimePickerDialog(SelecionarHorario.this, androidx.appcompat.R.style.Theme_AppCompat_Dialog, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int horasDia, int minutosDia) {
-                        Calendar c = Calendar.getInstance();
-                        c.set(Calendar.HOUR_OF_DAY, horasDia);
-                        c.set(Calendar.MINUTE, minutosDia);
-                        c.setTimeZone(TimeZone.getDefault());
-                        SimpleDateFormat format = new SimpleDateFormat("K:mm a");
-                        String time = format.format(c.getTime());
-                        textSelectedTime.setText(time);
-                    }
-                }, hour, mins, false);
-                timePickerDialog.show();
-            }
-        });
+        while (calendar.get(Calendar.HOUR_OF_DAY) < 18 || (calendar.get(Calendar.HOUR_OF_DAY) == 18 && calendar.get(Calendar.MINUTE) == 0)) {
+            intervaloTempo.add(dateFormat.format(calendar.getTime()));
+            calendar.add(Calendar.MINUTE, 30);
+        }
     }
 
     private void setupReservaButton() {
@@ -117,7 +94,8 @@ public class SelecionarHorario extends SelecionarServico {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {}
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
         });
 
         btReservar.setOnClickListener(new View.OnClickListener() {
@@ -126,9 +104,9 @@ public class SelecionarHorario extends SelecionarServico {
             @Override
             public void onClick(View view) {
                 Reserva reserva = new Reserva(
-                        textSelectedDate.getText().toString(),
+                        //textSelectedDate.getText().toString(),
                         textSelectedTime.getText().toString(),
-                        selectedService.getDescricao(),
+                        //selectedService.getDescricao(),
                         barber.getName()
                 );
 
@@ -140,11 +118,12 @@ public class SelecionarHorario extends SelecionarServico {
         });
 
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
 
-        Intent intent = new Intent(this, SelecionarProfissional.class);
+        Intent intent = new Intent(this, SelecionarData.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cinza"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".activity.Reserva.MainClient">
@@ -15,6 +15,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Serviços"
+        android:fontFamily="sans-serif-condensed-medium"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -25,10 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/creme"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/cinza_claro"
         android:padding="30dp"
         android:text="Reservar"
+        android:textColor="@color/black"
         android:textSize="20dp" />
 
     <Button

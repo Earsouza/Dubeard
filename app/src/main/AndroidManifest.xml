@@ -15,6 +15,12 @@
         android:theme="@style/Theme.DuBeardIFSC"
         tools:targetApi="34">
         <activity
+            android:name=".activity.Admin.model.CalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Reserva.SelecionarData"
+            android:exported="false" />
+        <activity
             android:name=".activity.Reserva.SelecionarProfissional"
             android:exported="false" />
         <activity

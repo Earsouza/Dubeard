@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class SelecionarProfissional extends SelecionarServico {
+public class SelecionarProfissional extends AppCompatActivity {
     private ListView listViewProfissionais;
     private DatabaseReference profissionaisReference;
     private ArrayAdapter<Barber> arrayAdapterProfissionais;
@@ -51,16 +51,11 @@ public class SelecionarProfissional extends SelecionarServico {
         btAvancar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SelecionarHorario.class);
+                Intent intent = new Intent(getApplicationContext(), SelecionarData.class);
                 startActivity(intent);
             }
         });
 
-    }
-
-    private void initComponents() {
-        listViewProfissionais = findViewById(R.id.listViewProfissional);
-        btAvancar = findViewById(R.id.btAvancar);
     }
 
     private void setupProfissionalListener() {
@@ -71,7 +66,7 @@ public class SelecionarProfissional extends SelecionarServico {
         profissionaisReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-               Barber barbeiro = snapshot.getValue(Barber.class);
+                Barber barbeiro = snapshot.getValue(Barber.class);
                 arrayListProfissionais.add(
                         new Barber(snapshot.getKey(),
                                 barbeiro.getName())
@@ -95,6 +90,11 @@ public class SelecionarProfissional extends SelecionarServico {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+    }
+
+    private void initComponents() {
+        listViewProfissionais = findViewById(R.id.listViewProfissional);
+        btAvancar = findViewById(R.id.btAvancar);
     }
 
 

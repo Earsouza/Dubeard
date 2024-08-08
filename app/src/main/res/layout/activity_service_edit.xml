@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.Admin.Control.ServiceEdit"
-    android:background="@color/cinza"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
     <TextView
@@ -14,6 +14,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:text="Serviço"
+        android:fontFamily="sans-serif-condensed-medium"
         android:layout_marginTop="50dp"
         android:textColor="@color/white"
         android:textSize="40sp"
@@ -27,7 +28,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="24dp"
-        android:background="@color/white"
+        android:background="@color/cinza_claro"
         android:hint="Descrição"
         android:padding="15dp"
         android:textColorHint="@color/black"
@@ -42,7 +43,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="24dp"
-        android:background="@color/white"
+        android:background="@color/cinza_claro"
         android:hint="Valor"
         android:padding="15dp"
         android:textColorHint="@color/black"

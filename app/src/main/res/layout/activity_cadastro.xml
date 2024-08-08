@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/background"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -17,12 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
+            android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
             android:paddingBottom="16dp"
             android:text="Cadastre-se"
             android:textColor="@color/white"
             android:textSize="40sp"
-
             android:textStyle="bold" />
 
         <EditText
@@ -30,19 +31,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/white"
+            android:background="@color/cinza_claro"
             android:hint="Nome"
             android:inputType="textPersonName"
             android:padding="15dp"
             android:textColorHint="@color/chumbo"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            />
 
         <EditText
             android:id="@+id/editCelular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/white"
+            android:background="@color/cinza_claro"
             android:hint="Celular"
             android:inputType="phone"
             android:padding="15dp"
@@ -54,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/white"
+            android:background="@color/cinza_claro"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
             android:padding="15dp"
@@ -66,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/white"
+            android:background="@color/cinza_claro"
             android:hint="Senha"
             android:inputType="textPassword"
             android:padding="15dp"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cinza"
+    android:background="@color/cinza_claro"
     android:gravity="left"
     android:orientation="vertical"
     tools:context=".activity.Reserva.SelecionarServico">
@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-condensed-medium"
+
         android:gravity="center"
         android:text="Selecionar Serviço"
         android:textColor="@color/white"
@@ -22,7 +24,8 @@
     <ListView
         android:id="@+id/listViewServicos"
         android:layout_width="match_parent"
-        android:layout_height="549dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="490dp"
         android:layout_above="@+id/btNewClientList"
         android:layout_marginBottom="18dp" />
 
