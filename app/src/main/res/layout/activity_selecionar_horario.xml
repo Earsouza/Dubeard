@@ -28,11 +28,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="18dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="148dp"
-        android:orientation="horizontal">
-
         <Button
             android:id="@+id/btReservar"
             android:layout_width="match_parent"
@@ -47,7 +42,6 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
 
-    </LinearLayout>
     <Button
         android:id="@+id/btCancelar"
         android:layout_width="match_parent"

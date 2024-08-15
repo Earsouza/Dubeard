@@ -6,11 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.dubeard.R;
+import com.dubeard.activity.Admin.model.Barber;
 import com.dubeard.activity.Admin.model.Reserva;
+import com.dubeard.activity.Login;
+import com.dubeard.firebase.FirebaseDataManager;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +32,11 @@ public class MainBarber extends AppCompatActivity {
     DatabaseReference databaseReference;
     ArrayAdapter<Reserva> arrayAdapterReservas;
     ArrayList<Reserva> arrayListReservas = new ArrayList<>();
+
+    Button btnSair, btnAtendido;
+
+    FirebaseDataManager<Reserva> firebaseDataManager;
+
 
 
     @Override
@@ -44,13 +55,10 @@ public class MainBarber extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Reserva reserva = snapshot.getValue(Reserva.class);
-                arrayListReservas.add(
-                        new Reserva(snapshot.getKey(),
-                                reserva.getHorario(),
-                                reserva.getServico())
-                );
-
-                arrayAdapterReservas.notifyDataSetChanged();
+                if (reserva != null) {
+                    arrayListReservas.add(reserva);
+                    arrayAdapterReservas.notifyDataSetChanged();  // Notifica o adapter sobre a mudança na lista
+                }
             }
 
             @Override
@@ -59,15 +67,6 @@ public class MainBarber extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                /*Barber barber = snapshot.getValue(Barber.class);
-                arrayListBarbers.remove(
-                        new Barber(snapshot.getKey(),
-                                barber.getName(),
-                                barber.getPhone(),
-                                barber.getEmail())
-                );
-
-                arrayAdapterBarbers.notifyDataSetChanged();*/
             }
 
             @Override
@@ -78,13 +77,34 @@ public class MainBarber extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+        btnSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        //defineButtonsAction();
-        //defineListViewAction();
+        /*btnAtendido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseDataManager.getNodeReference().removeValue();
+                startActivity(intent);
+            }
+        });*/
     }
 
     private void initComponents() {
         listView = findViewById(R.id.listViewAgendamentos);
+        btnAtendido = findViewById(R.id.btnAtendido);
+        btnSair = findViewById(R.id.btnSair);
+
+        /*String nodeId = getIntent().getStringExtra("id");
+
+        firebaseDataManager = new FirebaseDataManager(Reserva.class, "reserva", nodeId);
+        firebaseDataManager.init();*/
 
     }
 }

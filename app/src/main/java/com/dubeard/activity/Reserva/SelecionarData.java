@@ -19,7 +19,7 @@ import java.util.Locale;
 public class SelecionarData extends AppCompatActivity {
 
     private Button buttonOpenCalendar, btAvancar;
-    private EditText editTextSelectedDate;
+    public EditText editTextSelectedDate;
 
     private CalendarView calendarView;
 
@@ -33,8 +33,17 @@ public class SelecionarData extends AppCompatActivity {
         btAvancar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SelecionarHorario.class);
-                startActivity(intent);
+                String selectedDate = editTextSelectedDate.getText().toString();
+
+                Intent intent = getIntent();
+                String selectedServiceDescricao = intent.getStringExtra("selectedServiceDescricao");
+                String selectedBarberName = intent.getStringExtra("selectedBarberName");
+
+                Intent newIntent = new Intent(getApplicationContext(), SelecionarHorario.class);
+                newIntent.putExtra("selectedServiceDescricao", selectedServiceDescricao);
+                newIntent.putExtra("selectedBarberName", selectedBarberName);
+                newIntent.putExtra("selectedDate", selectedDate);
+                startActivity(newIntent);
             }
         });
         calendarView.setMinDate(System.currentTimeMillis());

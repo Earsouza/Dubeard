@@ -49,12 +49,7 @@ public class ClientList extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 Client client = snapshot.getValue(Client.class);
-                arrayListClients.add(
-                        new Client(snapshot.getKey(),
-                                client.getName(),
-                                client.getPhone(),
-                                client.getMail())
-                );
+                arrayListClients.add(client);
                 arrayAdapterClients.notifyDataSetChanged();
 
             }

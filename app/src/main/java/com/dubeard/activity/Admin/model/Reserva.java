@@ -1,25 +1,47 @@
 package com.dubeard.activity.Admin.model;
 
 public class Reserva {
-    private String id;
-    private String horario;
     private String servico;
-
-    public Reserva(String id, String horario, String servico) {
-        this.id = id;
-        this.horario = horario;
-        this.servico = servico;
-    }
-
-    public Reserva(String horario, String servico) {
-        this.horario = horario;
-        this.servico = servico;
-    }
+    private String barbeiro;
+    private String dataSelecionada;
+    private String horario;
 
     public Reserva() {
     }
+    public Reserva(String key, String horario, String servico) {
+    }
 
-    public Reserva(String toString, String toString1, String descricao, String name) {
+    // Construtor com parâmetros
+    public Reserva(String servico, String barbeiro, String dataSelecionada, String horarioSelecionado) {
+        this.servico = servico;
+        this.barbeiro = barbeiro;
+        this.dataSelecionada = dataSelecionada;
+        this.horario = horarioSelecionado;
+    }
+
+    // Getters e Setters
+    public String getServico() {
+        return servico;
+    }
+
+    public void setServico(String servico) {
+        this.servico = servico;
+    }
+
+    public String getBarbeiro() {
+        return barbeiro;
+    }
+
+    public void setBarbeiro(String barbeiro) {
+        this.barbeiro = barbeiro;
+    }
+
+    public String getDataSelecionada() {
+        return dataSelecionada;
+    }
+
+    public void setDataSelecionada(String dataSelecionada) {
+        this.dataSelecionada = dataSelecionada;
     }
 
     public String getHorario() {
@@ -30,25 +52,10 @@ public class Reserva {
         this.horario = horario;
     }
 
-    public String getServico() {
-        return servico;
-    }
-
-    public void setServico(String servico) {
-        this.servico = servico;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
+    @Override
     public String toString() {
+        return "Servico: " + servico + "\n" + "Barbeiro: " + barbeiro + "\n" + "Data: " + dataSelecionada  + "\n" + "Horário: " + horario;
 
-        return "Horário:" + horario + "\n" + "Servico:" + servico + "\n";
     }
-
 }
+

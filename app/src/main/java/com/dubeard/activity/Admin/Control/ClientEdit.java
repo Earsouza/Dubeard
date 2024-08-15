@@ -36,7 +36,7 @@ public class ClientEdit extends AppCompatActivity implements DataLoadListener<Cl
     }
     public void onDataLoaded(Client data) {
         client = data;
-        populateFields();
+         populateFields();
     }
 
 

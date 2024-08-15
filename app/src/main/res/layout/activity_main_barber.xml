@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/chumbo"
+    android:background="@color/cinza_claro"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".activity.Barbeiro.MainBarber">
@@ -18,20 +18,30 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Agendamentos"
         android:padding="20dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold" />
 
     <ListView
         android:id="@+id/listViewAgendamentos"
         android:layout_width="match_parent"
-        android:layout_height="636dp"
+        android:layout_height="454dp"
+        android:layout_marginBottom="18dp"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnAtendido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/verde"
+        android:padding="15dp"
+        android:text="Atendido"
         android:textColor="@color/white"
-        android:layout_marginBottom="18dp" />
+        android:textSize="20dp" />
 
 
     <Button
-        android:id="@+id/deslogar"
+        android:id="@+id/btnSair"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/cinza_claro"

@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.dubeard.R;
 import com.dubeard.activity.Admin.model.Barber;
@@ -42,17 +43,27 @@ public class SelecionarProfissional extends AppCompatActivity {
         listViewProfissionais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               selectedBarber = (Barber) parent.getItemAtPosition(position);
-               Barber barber = new Barber();
-               barber.setName(selectedBarber.getName());
+                selectedBarber = (Barber) parent.getItemAtPosition(position);
+                Barber barber = new Barber();
+                barber.setName(selectedBarber.getName());
             }
         });
 
         btAvancar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SelecionarData.class);
-                startActivity(intent);
+                if (selectedBarber != null) {
+                    Intent intent = getIntent();
+                    String selectedServiceDescricao = intent.getStringExtra("selectedServiceDescricao");
+
+                    Intent newIntent = new Intent(getApplicationContext(), SelecionarData.class);
+                    newIntent.putExtra("selectedServiceDescricao", selectedServiceDescricao);
+                    newIntent.putExtra("selectedBarberName", selectedBarber.getName());
+                    startActivity(newIntent);
+                } else {
+                    // Tratar caso onde nenhum profissional foi selecionado
+                    Toast.makeText(SelecionarProfissional.this, "Por favor, selecione um profissional.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
